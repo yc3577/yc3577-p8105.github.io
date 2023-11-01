@@ -6,52 +6,92 @@ output:
     toc_float: true
     theme: cerulean
 ---
-􏰀􏰁􏰂􏰃􏰄􏰅􏰃􏰆􏰇 􏰀􏰈􏰃
-􏰉􏰁􏰊􏰆􏰇􏰋 􏰌􏰍􏰎􏰏􏰐􏰑􏰍􏰏􏰐􏰒􏰌􏰎 􏰓 􏰔􏰕􏰈􏰃􏰖􏰋 􏰗􏰘􏰑􏰌􏰒􏰒􏰙􏰘􏰚􏰕􏰘􏰛􏰘􏰊􏰖􏰚􏰕􏰜􏰃􏰈􏰛􏰇􏰝􏰚 􏰓 􏰞􏰃􏰆􏰟􏰇􏰝􏰖􏰆􏰋 􏰖􏰃􏰆􏰟􏰇􏰝􏰃􏰆􏰛􏰘􏰊􏰕􏰠􏰃􏰆􏰠􏰘􏰘􏰘􏰁􏰂􏰃􏰄􏰅􏰃􏰆􏰇􏰘􏰈􏰃
-􏰔􏰝􏰚􏰘􏰈􏰅􏰃􏰊􏰆
-􏰀􏰊􏰖􏰚􏰕􏰜􏰃􏰈 􏰡􏰆􏰃􏰢􏰇􏰂􏰄􏰃􏰅􏰗 􏰣􏰈􏰃􏰖􏰕􏰈􏰆 􏰤􏰘􏰁􏰊􏰊􏰖 􏰊􏰥 􏰉􏰚􏰜􏰖􏰃􏰘 􏰦􏰇􏰈􏰖􏰅􏰁 􏰤􏰇􏰧 􏰨􏰎􏰨􏰑 􏰏 􏰣􏰈􏰗 􏰨􏰎􏰨􏰌
-􏰣􏰩􏰪􏰫􏰝􏰬 􏰭􏰮 􏰤􏰯􏰰􏰝􏰱􏰯􏰝􏰲 􏰣􏰩􏰳􏰭􏰬 􏰰􏰱 􏰴􏰰􏰭􏰪􏰫􏰩􏰫􏰰􏰪􏰫􏰰􏰯􏰪 􏰵􏰝􏰶 􏰷􏰭􏰬􏰸􏰲 􏰵􏰷
-􏰹 􏰀􏰊􏰂􏰇 􏰀􏰊􏰚􏰂􏰄􏰇􏰄􏰋 􏰺􏰈􏰅􏰈 􏰤􏰘􏰃􏰇􏰆􏰘􏰇􏰻 􏰤􏰅􏰈􏰅􏰃􏰄􏰅􏰃􏰘􏰈􏰖 􏰼􏰆􏰥􏰇􏰂􏰇􏰆􏰘􏰇􏰻 􏰺􏰈􏰅􏰈 􏰤􏰅􏰂􏰚􏰘􏰅􏰚􏰂􏰇􏰻 􏰽􏰖􏰾􏰊􏰂􏰃􏰅􏰁􏰕􏰄􏰻 􏰤􏰿􏰞􏰻 􏰣􏰈􏰘􏰁􏰃􏰆􏰇 􏰞􏰇􏰈􏰂􏰆􏰃􏰆􏰾􏰻 􏰺􏰈􏰅􏰈 􏰣􏰃􏰆􏰃􏰆􏰾
- 􏰡􏰆􏰃􏰢􏰇􏰂􏰄􏰃􏰅􏰗 􏰊􏰥 􏰀􏰈􏰖􏰃􏰥􏰊􏰂􏰆􏰃􏰈 􏰏 􏰴􏰇􏰂􏰟􏰇􏰖􏰇􏰗 􏱀􏰉􏰽􏰋 􏰑􏰛􏱁
-􏰴􏰩􏰯􏱃􏰝􏱄􏰭􏰬 􏰭􏰮 􏰽􏰬􏰫􏰪􏰲 􏰣􏰩􏰳􏰭􏰬 􏰰􏰱 􏰣􏰭􏱄􏰝􏰯􏱅􏱄􏰩􏰬 􏰩􏰱􏱆 􏰀􏰝􏱄􏱄 􏰴􏰰􏰭􏱄􏰭􏱇􏱈 􏱉 􏰔􏰯􏰭􏰱􏰭􏱊􏰰􏰯􏰪􏰲 􏰣􏰰􏰱􏰭􏰬 􏰰􏰱 􏰺􏰩􏰫􏰩 􏰤􏰯􏰰􏰝􏰱􏰯􏰝
-􏰔􏱋􏰧􏰇􏰂􏰃􏰇􏰆􏰘􏰇
-􏰞􏰈􏱌􏰂􏰇􏰆􏰘􏰇 􏰴􏰇􏰂􏰟􏰇􏰖􏰇􏰗 􏰵􏰈􏰅􏰃􏰊􏰆􏰈􏰖 􏰞􏰈􏰜􏰊􏰂􏰈􏰅􏰊􏰂􏰗
-􏰴􏰰􏰭􏰪􏰫􏰩􏰫􏰰􏰪􏰫􏰰􏰯􏰰􏰩􏰱 􏰽􏰪􏰪􏰰􏰪􏰫􏰩􏰱􏰫
-􏰽􏰚􏰾 􏰨􏰎􏰍􏱂 􏰏 􏰣􏰈􏰗 􏰨􏰎􏰨􏰑
-􏰴􏰝􏰬􏰸􏰝􏱄􏰝􏱈􏰲 􏰀􏰽
-􏰤􏰇􏰧 􏰨􏰎􏰨􏰎 􏰏 􏱍􏰘􏰅 􏰨􏰎􏰨􏰑
-􏰴􏰝􏰬􏰸􏰝􏱄􏰝􏱈􏰲 􏰀􏰽
- 􏰹 􏰺􏰇􏰢􏰇􏰖􏰊􏰧􏰇􏰝 􏰟􏰏􏰕􏰇􏰈􏰆􏰄􏰻 􏰁􏰃􏰇􏰂􏰈􏰂􏰘􏰁􏰃􏰘􏰈􏰖􏰻 􏰉􏰽􏰣 􏰘􏰖􏰚􏰄􏰅􏰇􏰂􏰃􏰆􏰾 􏰜􏰗 􏱎 􏰘􏰖􏰈􏰄􏰄􏰃􏰥􏰗􏰃􏰆􏰾 􏰜􏰃􏰊􏰕􏰈􏰂􏰟􏰇􏰂􏰄 􏰊􏰥 􏱏􏱏􏱁 􏰄􏰟􏰃􏰆 􏰕􏰇􏰖􏰈􏰆􏰊􏰕􏰈 􏰈􏰆􏰝 􏱁􏰎 􏰚􏰢􏰇􏰈􏰖 􏰕􏰇􏰖􏰈􏰆􏰊􏰕􏰈 􏰄􏰈􏰕􏰧􏰖􏰇􏰄 􏰅􏰊 􏰇􏱋􏰧􏰖􏰊􏰂􏰇 􏰧􏰊􏰅􏰇􏰆􏰅􏰃􏰈􏰖 􏰘􏰖􏰚􏰄􏰅􏰇􏰂􏰄
-􏰹 􏰀􏰊􏰆􏰝􏰚􏰘􏰅􏰇􏰝 􏰄􏰅􏰈􏰅􏰃􏰄􏰅􏰃􏰘􏰈􏰖 􏰕􏰊􏰝􏰇􏰖􏰃􏰆􏰾􏰻 􏰅􏰇􏰄􏰅􏰻 􏰈􏰆􏰝 􏰃􏰆􏰥􏰇􏰂􏰇􏰆􏰘􏰇 􏰅􏰊 􏰇􏱋􏰈􏰕􏰃􏰆􏰇 􏰄􏰃􏰕􏰃􏰖􏰈􏰂􏰃􏰅􏰃􏰇􏰄 􏰈􏰆􏰝 􏰝􏰃􏱐􏰇􏰂􏰇􏰆􏰘􏰇􏰄 􏰃􏰆 􏰜􏰃􏰊􏰕􏰈􏰂􏰟􏰇􏰂 􏰘􏰖􏰚􏰄􏰅􏰇􏰂􏰄􏰻 􏰈􏰘􏰁􏰃􏰇􏰢􏰇􏰝 􏱂􏰌􏱑 􏰀􏰼
-􏰹 􏰡􏰅􏰃􏰖􏰃􏱒􏰇􏰝 􏰺􏰔􏱀 􏰇􏰆􏰂􏰃􏰘􏰁􏰕􏰇􏰆􏰅 􏰅􏰊 􏰇􏱋􏰈􏰕􏰃􏰆􏰇 􏰪􏰚􏰈􏰆􏰅􏰃􏰅􏰈􏰅􏰃􏰢􏰇 􏰇􏱋􏰧􏰂􏰇􏰄􏰄􏰃􏰊􏰆 􏰊􏰥 􏰊􏰢􏰇􏰂 􏱏􏰎􏰎 􏰾􏰇􏰆􏰇􏰄 􏰈􏰄􏰄􏰊􏰘􏰃􏰈􏰅􏰃􏰆􏰾 􏱌􏰃􏰅􏰁 􏰜􏰃􏰊􏰖􏰊􏰾􏰃􏰘􏰈􏰖 􏰧􏰈􏰅􏰁􏱌􏰈􏰗􏰄 􏰵􏰊􏰢􏰈􏰂􏰅􏰃􏰄 􏰉􏰁􏰈􏰂􏰕􏰈 􏰞􏰅􏰝􏰛 􏰣􏰈􏰂 􏰨􏰎􏰨􏰍 􏰏 􏰽􏰚􏰾 􏰨􏰎􏰨􏰍 􏰺􏰩􏰫􏰩 􏰼􏰱􏰱􏰭􏱓􏰩􏰫􏰰􏰭􏰱 􏰤􏱃􏰩􏰱􏱇􏱃􏰩􏰰􏰲 􏰀􏱃􏰰􏰱􏰩 􏰹 􏰺􏰇􏰢􏰇􏰖􏰊􏰧􏰇􏰝 􏰐 􏰝􏰈􏰅􏰈 􏰧􏰃􏰧􏰇􏰖􏰃􏰆􏰇􏰄 􏰜􏰈􏰄􏰇􏰝 􏰊􏰆 􏰌􏰎􏰟􏱔 􏰽􏰤 􏰈􏰆􏰝 􏱕􏰣 􏰘􏰖􏰃􏰆􏰃􏰘􏰈􏰖 􏰧􏰈􏰅􏰃􏰇􏰆􏰅 􏰂􏰇􏰘􏰊􏰂􏰝􏰄 􏰅􏰊 􏰃􏰕􏰧􏰂􏰊􏰢􏰇 􏰈􏰆􏰈􏰖􏰗􏱒􏰃􏰆􏰾 􏰇􏱖􏰘􏰃􏰇􏰆􏰘􏰗 􏰜􏰗 􏱏􏱂􏱑
-􏰹 􏰽􏰧􏰧􏰖􏰃􏰇􏰝 􏰟􏰏􏰕􏰇􏰈􏰆􏰄 􏰘􏰖􏰚􏰄􏰅􏰇􏰂􏰃􏰆􏰾 􏰃􏰆 􏰤􏰽􏰤 􏰅􏰊 􏰄􏰇􏰾􏰕􏰇􏰆􏰅 􏰧􏰈􏰅􏰃􏰇􏰆􏰅 􏰝􏰈􏰅􏰈 􏰅􏰊 􏰝􏰂􏰈􏱌 􏰘􏰊􏰆􏰘􏰖􏰚􏰄􏰃􏰊􏰆􏰄 􏰊􏰆 􏰅􏰈􏰂􏰾􏰇􏰅􏰇􏰝 􏰘􏰖􏰃􏰇􏰆􏰅􏰄􏱗 􏰃􏰕􏰈􏰾􏰇􏰄
-􏰹 􏰀􏰊􏰆􏰝􏰚􏰘􏰅􏰇􏰝 􏰽􏰠􏰴 􏰅􏰇􏰄􏰅􏰃􏰆􏰾 􏰊􏰆 􏰍􏰨 􏰘􏰊􏰆􏰅􏰂􏰊􏰖􏰖􏰇􏰝 􏰢􏰈􏰂􏰃􏰈􏰜􏰖􏰇􏰄 􏰃􏰆 􏰘􏰖􏰃􏰇􏰆􏰅􏰄􏱗 􏰃􏰕􏰈􏰾􏰇 􏰄􏰈􏰕􏰧􏰖􏰇􏰄 􏰅􏰊 􏰈􏰄􏰄􏰇􏰄􏰄 􏰃􏰕􏰧􏰈􏰘􏰅 􏰊􏰥 􏰈􏰝􏰢􏰇􏰂􏰅􏰃􏰄􏰃􏰆􏰾 􏰄􏰅􏰂􏰈􏰅􏰇􏰾􏰃􏰇􏰄
-􏰂􏰇􏰄􏰚􏰖􏰅􏰃􏰆􏰾 􏰃􏰆 􏰈 􏰑􏰌􏱑 􏰂􏰇􏰅􏰇􏰆􏰅􏰃􏰊􏰆 􏰂􏰈􏰅􏰇
-􏰹 􏱘􏰃􏰄􏰚􏰈􏰖􏰃􏱒􏰇􏰝 􏰘􏰚􏰄􏰅􏰊􏰕􏰇􏰂 􏰧􏰊􏰂􏰅􏰂􏰈􏰃􏰅􏰄 􏰜􏰗 􏱙􏰈􏰜􏰖􏰇􏰈􏰚 􏰅􏰊 􏰧􏰂􏰇􏰄􏰇􏰆􏰅 􏱚􏰆􏰈􏰖 􏰂􏰇􏰧􏰊􏰂􏰅 􏰊􏰆 􏰜􏰚􏰄􏰃􏰆􏰇􏰄􏰄 􏰄􏰅􏰂􏰈􏰅􏰇􏰾􏰃􏰇􏰄 􏰃􏰆􏰘􏰂􏰇􏰈􏰄􏰃􏰆􏰾 􏰑􏱁􏱑 􏰂􏰇􏰅􏰚􏰂􏰆 􏰂􏰈􏰅􏰇
-􏰵􏰇􏰅 􏰔􏰈􏰄􏰇 􏰞􏰅􏰝􏰛 􏱛􏱙􏰇􏰘􏰁 􏰀􏰊􏰕􏰧􏰈􏰆􏰗􏱜 􏱝􏰈􏰆 􏰨􏰎􏰨􏰍 􏰏 􏰣􏰈􏰂 􏰨􏰎􏰨􏰍
-􏰺􏰩􏰫􏰩 􏰽􏰱􏰩􏱄􏱈􏰪􏰫 􏰵􏰩􏰱􏰳􏰰􏰱􏱇􏰲 􏰀􏱃􏰰􏰱􏰩
-􏰹 􏰀􏰊􏰆􏰝􏰚􏰘􏰅􏰇􏰝 􏰝􏰈􏰅􏰈 􏰕􏰃􏰆􏰃􏰆􏰾 􏰈􏰆􏰝 􏱌􏰇􏰜 􏰄􏰘􏰂􏰈􏰧􏰃􏰆􏰾 􏰊􏰆 􏰌 􏰢􏰃􏰝􏰇􏰊 􏰾􏰈􏰕􏰇􏰄 􏰘􏰚􏰄􏰅􏰊􏰕􏰇􏰂 􏰥􏰇􏰇􏰝􏰜􏰈􏰘􏰟 􏰝􏰈􏰅􏰈 􏰅􏰊 􏰘􏰊􏰖􏰖􏰇􏰘􏰅 􏰊􏰢􏰇􏰂 􏰌􏰎􏰎􏰎 􏰅􏰃􏰝􏰗 􏰄􏰈􏰕􏰧􏰖􏰇􏰄 􏰹 􏰀􏰊􏰆􏰄􏰅􏰂􏰚􏰘􏰅􏰇􏰝 􏰄􏰅􏰂􏰇􏰈􏰕􏰖􏰃􏰆􏰇􏰝 􏰝􏰈􏰅􏰈 􏰧􏰃􏰧􏰇􏰖􏰃􏰆􏰇􏰄 􏰜􏰗 􏰧􏰗􏰅􏰁􏰊􏰆 􏰥􏰊􏰂 􏰝􏰈􏰅􏰈 􏰘􏰖􏰇􏰈􏰆􏰃􏰆􏰾 􏱞 􏰅􏰂􏰈􏰆􏰄􏰥􏰊􏰂􏰕􏰈􏰅􏰃􏰊􏰆 􏰊􏰆 􏰌 􏰢􏰃􏰝􏰇􏰊 􏰾􏰈􏰕􏰇􏰄 􏰚􏰄􏰇􏰂 􏰥􏰇􏰇􏰝􏰜􏰈􏰘􏰟 􏰹 􏰉􏰇􏰂􏰥􏰊􏰂􏰕􏰇􏰝 􏰂􏰇􏰾􏰂􏰇􏰄􏰄􏰃􏰊􏰆 􏰈􏰆􏰈􏰖􏰗􏰄􏰃􏰄 􏰚􏰄􏰃􏰆􏰾 􏰣􏰗􏰤􏰿􏰞 􏰅􏰊 􏰇􏱋􏰧􏰖􏰊􏰂􏰇 􏰘􏰊􏰂􏰂􏰇􏰖􏰈􏰅􏰃􏰊􏰆􏰄 􏰜􏰇􏰅􏱌􏰇􏰇􏰆 􏰢􏰈􏰂􏰃􏰈􏰜􏰖􏰇􏰄 􏰊􏰆 􏰾􏰈􏰕􏰇􏰄 􏰘􏰁􏰈􏰂􏰈􏰘􏰅􏰇􏰂􏰃􏰄􏰅􏰃􏰘􏰄
-􏰹 􏰴􏰚􏰃􏰖􏰅 􏰈􏰆 􏰊􏰆􏰖􏰃􏰆􏰇 􏰧􏰖􏰈􏰅􏰥􏰊􏰂􏰕 􏰜􏰗 􏰧􏰗􏰅􏰁􏰊􏰆 􏰥􏰊􏰂 􏰄􏰚􏰕􏰕􏰇􏰂 􏰢􏰃􏰝􏰇􏰊 􏰾􏰈􏰕􏰇 􏰧􏰂􏰊􏰾􏰂􏰈􏰕 􏰂􏰇􏰘􏰂􏰚􏰃􏰅􏰃􏰆􏰾􏰻 􏰂􏰇􏰘􏰂􏰚􏰃􏰅􏰇􏰝 􏰊􏰢􏰇􏰂 􏰌􏰎 􏰄􏰊􏰥􏰅􏱌􏰈􏰂􏰇 􏰇􏰆􏰾􏰃􏰆􏰇􏰇􏰂􏰄
-􏰀􏰁􏰃􏰆􏰇􏰄􏰇 􏰉􏰈􏰘􏰃􏱚􏰘 􏰼􏰆􏰄􏰚􏰂􏰈􏰆􏰘􏰇 􏰀􏰊􏰕􏰧􏰈􏰆􏰗 􏰣􏰈􏰗 􏰨􏰎􏰨􏰎 􏰏 􏰽􏰚􏰾 􏰨􏰎􏰨􏰎
-􏰴􏱅􏰪􏰰􏰱􏰝􏰪􏰪 􏰽􏰱􏰩􏱄􏱈􏰪􏰫 􏰵􏰩􏰱􏰳􏰰􏰱􏱇􏰲 􏰀􏱃􏰰􏰱􏰩
-􏰹 􏰉􏰂􏰇􏰝􏰃􏰘􏰅􏰇􏰝 􏰝􏰇􏰧􏰈􏰂􏰅􏰕􏰇􏰆􏰅 􏰪􏰚􏰈􏰂􏰅􏰇􏰂 􏰜􏰚􏰝􏰾􏰇􏰅 􏰜􏰗 􏱘􏰖􏰊􏰊􏰟􏰚􏰧􏰻 􏰼􏰆􏰝􏰇􏱋􏰻 􏰈􏰆􏰝 􏱕􏰃􏰆􏰝􏰴 􏰥􏰚􏰆􏰘􏰅􏰃􏰊􏰆􏰄 􏰅􏰊 􏰄􏰈􏰢􏰇 􏰚􏰧 􏰅􏰊 􏰑􏰌􏱑 􏱚􏰆􏰈􏰆􏰘􏰃􏰈􏰖 􏰘􏰊􏰄􏰅􏰄
-􏰹 􏰡􏰅􏰃􏰖􏰃􏱒􏰇􏰝 􏰖􏰊􏰾􏰃􏰄􏰅􏰃􏰘 􏰂􏰇􏰾􏰂􏰇􏰄􏰄􏰃􏰊􏰆􏰻 􏰅􏰃􏰕􏰇 􏰄􏰇􏰂􏰃􏰇􏰄 􏰈􏰆􏰈􏰖􏰗􏰄􏰃􏰄 􏰊􏰆 􏰃􏰆􏰝􏰃􏰘􏰈􏰅􏰊􏰂􏰄 􏰅􏰊 􏰧􏰂􏰊􏰢􏰃􏰝􏰇 􏰈 􏱂􏰌􏱑 􏰈􏰘􏰘􏰚􏰂􏰈􏰘􏰗 􏱚􏰅 􏰊􏰆 􏰆􏰇􏱋􏰅 􏰪􏰚􏰈􏰂􏰅􏰇􏰂 􏰝􏰈􏰅􏰈 􏰅􏰂􏰇􏰆􏰝
-􏰉􏰚􏰜􏰖􏰃􏰘􏰈􏰅􏰃􏰊􏰆􏰄
-􏰉􏰈􏰆􏰏􏰘􏰈􏰆􏰘􏰇􏰂 􏰇􏰢􏰈􏰖􏰚􏰈􏰅􏰃􏰊􏰆 􏰊􏰥 􏰘􏰖􏰃􏰆􏰃􏰘􏰈􏰖 􏰢􏰈􏰖􏰚􏰇 􏰊􏰥 􏰣􏰵􏰽􏰼 􏰈􏰆􏰝 􏰃􏰅􏰄 􏰧􏰂􏰇􏰝􏰃􏰘􏰅􏰃􏰢􏰇 􏰢􏰈􏰖􏰚􏰇 􏰥􏰊􏰂 􏰃􏰕􏰕􏰚􏰆􏰊􏰅􏰁􏰇􏰂􏰈􏰧􏰗 􏱝􏰚􏰆􏰇 􏰨􏰎􏰨􏰑
-􏰺􏱍􏰼􏱟 􏱠􏱡􏱢􏱣􏱣􏱤􏱥􏱦􏰮􏰭􏰱􏰯􏱢􏱧􏱡􏱧􏱣􏱢􏱠􏱠􏱨􏱤􏱩􏱪􏱤 􏰉􏰬􏰝􏱫􏰬􏰰􏰱􏰫􏰪􏱢􏰭􏰬􏱇 􏱠􏰪􏰫 􏰽􏱅􏰫􏱃􏰭􏰬
-􏰹 􏰉􏰇􏰂􏰥􏰊􏰂􏰕􏰇􏰝 􏰈 􏰧􏰈􏰆􏰏􏰘􏰈􏰆􏰘􏰇􏰂 􏰄􏰅􏰚􏰝􏰗 􏰊􏰆 􏰅􏰁􏰇 􏰕􏰃􏰅􏰊􏰅􏰃􏰘 􏰆􏰇􏰅􏱌􏰊􏰂􏰟 􏰈􏰘􏰅􏰃􏰢􏰃􏰅􏰗 􏰃􏰆􏰝􏰇􏱋 􏰘􏰊􏰆􏰄􏰅􏰂􏰚􏰘􏰅􏰇􏰝 􏰜􏰈􏰄􏰇􏰝 􏰊􏰆 􏰌􏱏􏰏􏰾􏰇􏰆􏰇 􏰕􏰃􏰅􏰊􏰅􏰃􏰘 􏰆􏰇􏰅􏱌􏰊􏰂􏰟 􏰹 􏰀􏰊􏰆􏱚􏰂􏰕􏰇􏰝 􏰅􏰁􏰇 􏰄􏰃􏰾􏰆􏰃􏱚􏰘􏰈􏰆􏰅 􏰈􏰄􏰄􏰊􏰘􏰃􏰈􏰅􏰃􏰊􏰆 􏰊􏰥 􏰣􏰵􏰽􏰼 􏱌􏰃􏰅􏰁 􏰊􏰢􏰇􏰂􏰈􏰖􏰖 􏰈􏰆􏰝 􏰧􏰂􏰊􏰾􏰂􏰇􏰄􏰄􏰃􏰊􏰆􏰏􏰥􏰂􏰇􏰇 􏰄􏰚􏰂􏰢􏰃􏰢􏰈􏰖 􏰃􏰆 􏰕􏰚􏰖􏰅􏰃􏰧􏰖􏰇 􏰘􏰈􏰆􏰘􏰇􏰂 􏰅􏰗􏰧􏰇􏰄
- 􏰼􏰆􏰅􏰇􏰾􏰂􏰈􏰅􏰃􏰢􏰇 􏰽􏰆􏰈􏰖􏰗􏰄􏰃􏰄 􏰊􏰥 􏱀􏰇􏰆􏰇􏰅􏰃􏰘 􏰈􏰆􏰝 􏰔􏰧􏰃􏰾􏰇􏰆􏰇􏰅􏰃􏰘 􏰽􏰖􏰅􏰇􏰂􏰈􏰅􏰃􏰊􏰆􏰄 􏰃􏰆 􏰅􏰁􏰇 􏰀􏰴􏱬􏰒 􏱀􏰇􏰆􏰇
-􏰺􏱍􏰼􏱟 􏱠􏱡􏱢􏱩􏱩􏱡􏱤􏱩􏱦􏰭􏰰􏱢􏱧􏱡􏱧􏱣􏱢􏱪􏱥􏱠 􏰉􏱅􏱭􏱄􏰰􏰪􏱃􏰝􏱆 􏰭􏰱 􏱍􏰱􏰯􏰭􏱄􏰭􏱇􏱈 􏰼􏰱􏰪􏰰􏱇􏱃􏰫􏰪
-􏰹 􏱕􏰊􏰚􏰆􏰝 􏰅􏰁􏰈􏰅 􏰕􏱎􏰵􏰽 􏰖􏰇􏰢􏰇􏰖􏰄 􏰊􏰥 􏰀􏰴􏱬􏰒 􏰈􏰂􏰇 􏰝􏰊􏱌􏰆􏰂􏰇􏰾􏰚􏰖􏰈􏰅􏰇􏰝 􏰃􏰆 􏰴􏰂􏰇􏰈􏰄􏰅 􏰀􏰈􏰆􏰘􏰇􏰂􏰄
-􏰹 􏰀􏰊􏰆􏰘􏰖􏰚􏰝􏰇􏰝 􏰅􏰁􏰈􏰅 􏰖􏰊􏰄􏰄 􏰊􏰥 􏰀􏰴􏱬􏰒 􏰃􏰆􏰘􏰂􏰇􏰈􏰄􏰇􏰄 􏰾􏰇􏰆􏰊􏰕􏰃􏰘 􏰃􏰆􏰄􏰅􏰈􏰜􏰃􏰖􏰃􏰅􏰗 􏰈􏰆􏰝 􏰅􏰚􏰕􏰊􏰂 􏰕􏰚􏰅􏰈􏰅􏰃􏰊􏰆 􏰜􏰚􏰂􏰝􏰇􏰆
-􏰽 􏰵􏰊􏰢􏰇􏰖 􏰺􏰵􏰽 􏱎􏰇􏰧􏰈􏰃􏰂 􏱀􏰇􏰆􏰇 􏰤􏰃􏰾􏰆􏰈􏰅􏰚􏰂􏰇 􏰥􏰊􏰂 􏰼􏰕􏰕􏰚􏰆􏰇 􏰀􏰁􏰇􏰘􏰟􏰧􏰊􏰃􏰆􏰅 􏰼􏰆􏰁􏰃􏰜􏰃􏰅􏰊􏰂 􏱙􏰁􏰇􏰂􏰈􏰧􏰗 􏰃􏰆 􏱀􏰈􏰄􏰅􏰂􏰃􏰘 􏰀􏰈􏰆􏰘􏰇􏰂 􏰺􏱍􏰼􏱟 􏱠􏱡􏱢􏱣􏱣􏱤􏱥􏱦􏰮􏰯􏰝􏱄􏱄􏱢􏱧􏱡􏱧􏱧􏱢􏱤􏱥􏱣􏱩􏱮􏱪 􏰉􏱅􏱭􏱄􏰰􏰪􏱃􏰝􏱆 􏰭􏰱 􏱕􏰬􏰭􏰱􏰫􏰰􏰝􏰬􏰪 􏰰􏰱 􏰀􏰝􏱄􏱄 􏰩􏰱􏱆 􏰺􏰝􏱓􏰝􏱄􏰭􏱫􏱊􏰝􏰱􏰫􏰩􏱄 􏰴􏰰􏰭􏱄􏰭􏱇􏱈
-􏰤􏰟􏰃􏰖􏰖􏰄
-􏰣􏰈􏰂􏰘􏰁 􏰨􏰎􏰨􏰑
-􏱠􏰪􏰫 􏰽􏱅􏰫􏱃􏰭􏰬
-􏰣􏰈􏰗 􏰨􏰎􏰨􏰨
-􏱮􏰫􏱃 􏰽􏱅􏰫􏱃􏰭􏰬
- 􏰉􏰂􏰊􏰾􏰂􏰈􏰕􏰕􏰃􏰆􏰾􏰋 􏰉􏰗􏰅􏰁􏰊􏰆􏰻 􏱎􏰻 􏰤􏰿􏰞 􏱛􏰣􏰗 􏰤􏰿􏰞 􏱞 􏰤􏰿􏰞 􏰄􏰇􏰂􏰢􏰇􏰂􏱜􏰻 􏰤􏰽􏰤
-􏱙􏰊􏰊􏰖􏰄􏰋 􏰺􏰈􏰅􏰈 􏰉􏰃􏰧􏰇􏰖􏰃􏰆􏰇􏰄􏰻 􏰵􏰚􏰕􏰧􏰗􏰻 􏰉􏰈􏰆􏰝􏰈􏰄􏰻 􏱙􏰈􏰜􏰖􏰇􏰈􏰚􏰻 􏰉􏰊􏱌􏰇􏰂 􏰴􏰼􏰻 􏰽􏰠􏰴 􏱙􏰇􏰄􏰅􏰃􏰆􏰾􏰻 􏱯􏰇􏰜 􏰤􏰘􏰂􏰈􏰧􏰃􏰆􏰾􏰻 􏰺􏰈􏰅􏰈 􏰕􏰃􏰆􏰃􏰆􏰾􏰻 􏰺􏰈􏰅􏰈 􏱘􏰃􏰄􏰚􏰈􏰖􏰃􏰄􏰈􏰅􏰃􏰊􏰆􏰻 􏱘􏰃􏰄􏰚􏰈􏰖 􏰤􏰅􏰚􏰝􏰃􏰊􏰻 􏰽􏰖􏰾􏰊􏰂􏰃􏰅􏰁􏰕􏰄􏰻 􏰣􏰈􏰘􏰁􏰃􏰆􏰇 􏰞􏰇􏰈􏰂􏰆􏰃􏰆􏰾􏰻 􏰵􏰞􏰉
+# Yimeng Cai
+
+## Contact Information
+
+- Phone: 510-631-6750
+
+- Email: yc3577@cumc.columbia.edu
+
+- Linkedln: https://www.linkedin.com/in/ccchristinecai/
+
+## Education
+
+### Columbia University Mailman School of Public Health                               Sep 2023 - May 2025
+
+Master of Science, Major in Biostatistics
+
+- Core Courses: Data Science, Statistical Inference, Data Structure, Algorithms, SQL, Machine Learning, Data Mining
+
+### University of California - Berkeley GPA: 3.8                                      Aug 2019 - May 2023
+
+Bachelor of Arts, Major in Molecular and Cell Biology + Economics, Minor in Data Science                
+
+## Experience
+### Lawrence Berkeley National Laboratory                                             Sep 2020 - Oct 2023
+Biostatistician Assistant        
+
+- Developed k-means, hierarchical, PAM clustering by R classifying biomarkers of 448 skin melanoma and 80 uveal melanoma samples to explore potential clusters
+
+- Conducted statistical modeling, test, and inference to examine similarities and differences in biomarker clusters, achieved 95% CI
+
+- Utilized DEG enrichment to examine quantitative expression of over 400 genes associating with biological pathways
+
+### Novartis Pharma Ltd.                                                              Mar 2021 - Aug 2021
+Data Innovation 
+
+- Developed 6 data pipelines based on 50k+ AS and FM clinical patient records to improve analyzing efficiency by 49%
+
+- Applied k-means clustering in SAS to segment patient data to draw conclusions on targeted clients’ images
+
+- Conducted A/B testing on 12 controlled variables in clients’ image samples to assess impact of advertising strategies resulting in a 35% retention rate
+
+- Visualized customer portraits by Tableau to present final report on business strategies increasing 38% return rate
+
+### Net Ease Ltd. (Tech Company)                                                      Jan 2021 - Mar 2021
+Data Analyst
+
+- Conducted data mining and web scraping on 5 video games customer feedback data to collect over 5000 tidy samples
+
+- Constructed streamlined data pipelines by python for data cleaning & transformation on 5 video games user feedback
+
+- Performed regression analysis using MySQL to explore correlations between variables on games characteristics
+
+- Built an online platform by python for summer video game program recruiting, recruited over 50 software engineers
+
+### Chinese Pacific Insurance Company                                                 May 2020 - Aug 2020
+Business Analyst
+
+- Predicted department quarter budget by Vlookup, Index, and FindB functions to save up to 35% financial costs 
+
+- Utilized logistic regression, time series analysis on indicators to provide a 95% accuracy fit on next quarter data trend
 
 
-I learn p8105.
+## Publications
+### Pan-cancer evaluation of clinical value of MNAI and its predictive value for immunotherapy  June 2023 
+DOI: 10.3389/fonc.2023.1178568  Preprints.org                                                 1st Author
+
+- Performed a pan-cancer study on the mitotic network activity index constructed based on 54-gene mitotic network
+
+- Confirmed the significant association of MNAI with overall and progression-free survival in multiple cancer types
+
+### Integrative Analysis of Genetic and Epigenetic Alterations in the CBX7 Gene               March 2023                                                                 
+DOI: 10.55085/oi.2023.691  Published on Oncology Insights                                     1st Author
+
+- Found that mRNA levels of CBX7 are downregulated in Breast Cancers
+
+- Concluded that loss of CBX7 increases genomic instability and tumor mutation burden
+
+### A Novel DNA Repair Gene Signature for Immune Checkpoint Inhibitor Therapy in Gastric Cancer  May 2022                                                              
+DOI: 10.3389/fcell.2022.893546 Published on Frontiers in Cell and Developmental Biology       4th Author     
+
+## Skills
+
+### Programming: 
+
+- Python, R, SQL (My SQL & SQL server), SAS
+
+### Tools: 
+
+- Data Pipelines, Numpy, Pandas, Tableau, Power BI, A/B Testing, Web Scraping, Data mining, Data Visualisation, Visual Studio, Algorithms, Machine Learning, NLP
