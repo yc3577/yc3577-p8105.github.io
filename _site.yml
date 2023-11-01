@@ -1,0 +1,21 @@
+name: "Yimeng Cai's Contact Info"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: ""
+      href: Resume.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<yc3577@columbia.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/yc3577
+    - icon: fa-brands fa-linkedin
+      href: https://www.linkedin.com/in/ccchristinecai/
+    - icon: fa-brands fa-instagram
+      href: https://www.instagram.com/christine.cai.9085/
+    - icon: fa-brands fa-facebook
+      href: https://www.facebook.com/christine.cai.9085/
+      
+output:
+  html_document:
+    theme: cerulean
