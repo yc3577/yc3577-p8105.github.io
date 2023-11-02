@@ -1,0 +1,96 @@
+---
+title: "Flexdashboard for Instacart"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Scatter plot of Order numbers across Different Hours of Day
+```{r}
+data(instacart)
+
+instacart_scatter = 
+  instacart |>
+  drop_na() |>
+  sample_n(1000) |>
+  group_by(department_id) |>
+  filter(!order_id == 'na') |>
+  plot_ly(
+    x = ~order_hour_of_day,
+    y = ~order_number,
+    type = 'scatter',
+    color = ~department_id
+  ) |>
+  layout(
+    xaxis = list(title='Hours during a Day'),
+    yaxis = list(title='# of Orders'),
+    title = 'Scatter plot of # of Orders in each hour of a Day'
+  )
+  
+instacart_scatter
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Bar Chart of Order numbers across Different Departments 
+
+```{r}
+instacart_bar = 
+  instacart |>
+  drop_na() |>
+  sample_n(500) |>
+  filter( !department == 'missing' & !department == 'other') |>
+  group_by(product_id) |>
+  summarise(order_num = sum(order_number), department = department) |>
+  plot_ly(
+    x = ~department,
+    y = ~order_num,
+    type = 'bar',
+    color = ~product_id
+  ) |>
+  layout(
+    xaxis = list(title='Department'),
+    yaxis = list(title='# of Orders'),
+    title = 'Bar chart of # of Orders in each Department'
+  )
+instacart_bar
+```
+
+### Box plot of Days Since Prior Orders across Different Department
+
+```{r}
+instacart_box = 
+  instacart |>
+  drop_na() |>
+  sample_n(1000) |>
+  group_by(department) |>
+  filter( !department == 'missing' & !department == 'other') |>
+  select(department, days_since_prior_order, user_id) |>
+  plot_ly(
+    x = ~department,
+    y = ~days_since_prior_order,
+    type = 'box',
+    color = ~department
+  ) |>
+  layout(
+    xaxis = list(title='Department'),
+    yaxis = list(title='# of Days since last order'),
+    title = 'Box Plot of # of Days since last order across Departments'
+  )
+  
+instacart_box
+
+```
+

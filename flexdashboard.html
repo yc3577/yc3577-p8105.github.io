@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<title>Flexdashboard for Instacart</title>
+
+<meta property="og:title" content="Flexdashboard for Instacart" />
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+
+<link rel="icon" href="data:image/x-icon;" type="image/x-icon">
+
+
+<script type="text/javascript">
+window.FlexDashboardComponents = [];
+</script>
+
+<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/stickytableheaders-0.1.19/jquery.stickytableheaders.min.js"></script>
+<link href="site_libs/value-box-accent-static-0.6.2/theme-cosmo-value-box.css" rel="stylesheet" />
+<link href="site_libs/flexdashboard-css-0.6.2/flexdashboard.min.css" rel="stylesheet" />
+<link href="site_libs/flexdashboard-css-0.6.2/theme-cosmo.css" rel="stylesheet" />
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.3/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<style type="text/css">
+/*
+  CSS for flexdashboard.js' use of Sly(). The sizing/position of this CSS needs to be
+  applied _before_ flexdashboard.js initializes, which is why this CSS has been pulled
+  out from flexdashboard.scss and inlined in the document's head.
+*/
+
+.storyboard-nav button {
+  background: transparent;
+  border: 0;
+  opacity: .3;
+  outline: none;
+  padding: 0;
+}
+
+.storyboard-nav button:hover,
+.storyboard-nav button:hover {
+  opacity: .5;
+}
+
+.storyboard-nav button:disabled,
+.storyboard-nav button:disabled {
+  opacity: .1;
+}
+
+.storyboard-nav .sbnext,
+.storyboard-nav .sbprev {
+  float: left;
+  width: 2%;
+  height: 120px;
+}
+
+.storyboard-nav .sbprev {
+  text-align: left;
+  width: 2%;
+}
+
+.storyboard-nav .sbnext {
+  float: right;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.storyboard-nav .sbframelist {
+  margin: 0 auto;
+  width: 94%;
+  height: 120px;
+  overflow: hidden;
+  text-shadow: none;
+  margin-bottom: 8px;
+}
+
+.storyboard-nav .sbframelist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.storyboard-nav .sbframelist ul li {
+  float: left;
+  width: 270px;
+  height: 100%;
+  padding: 10px 10px 10px 10px;
+  margin-right: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.storyboard-nav .sbframelist ul li:last-child {
+  margin-right: 0px;
+}
+
+.sbframe-commentary {
+  width: 300px;
+}
+
+.sbframe-commentary ul {
+  padding-left: 22px;
+}
+
+.sbframe.active {
+  display: flex;
+}
+
+.sbframe:not(.active) {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+html, body {
+  height: 100%;
+}
+
+#dashboard-container {
+  height: 100%;
+}
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container-fluid">
+<div class="navbar-header">
+
+<span class="navbar-logo pull-left">
+  
+</span>
+<span class="navbar-brand">
+  Flexdashboard for Instacart
+  <span class="navbar-author">
+        </span>
+</span>
+
+<button id="navbar-button" type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+
+</div>
+<div id="navbar" class="navbar-collapse collapse">
+<ul class="nav navbar-nav navbar-left">
+</ul>
+<ul class="nav navbar-nav navbar-right">
+</ul>
+</div><!--/.nav-collapse-->
+</div><!--/.container-->
+</div><!--/.navbar-->
+
+<script type="text/javascript">
+
+
+var FlexDashboard = (function () {
+
+  // initialize options
+  var _options = {};
+
+  var FlexDashboard = function() {
+
+    // default options
+    _options = $.extend(_options, {
+      theme: "cosmo",
+      fillPage: false,
+      orientation: 'columns',
+      storyboard: false,
+      defaultFigWidth: 576,
+      defaultFigHeight: 461,
+      defaultFigWidthMobile: 360,
+      defaultFigHeightMobile: 461,
+      isMobile: false,
+      isPortrait: false,
+      resize_reload: true
+    });
+  };
+
+  function init(options) {
+
+    // extend default options
+    $.extend(true, _options, options);
+
+    // add ids to sections that don't have them (pandoc won't assign ids
+    // to e.g. sections with titles consisting of only chinese characters)
+    var nextId = 1;
+    $('.level1:not([id]),.level2:not([id]),.level3:not([id])').each(function() {
+      $(this).attr('id', 'dashboard-' + nextId++);
+    });
+
+    // find navbar items
+    var navbarItems = $('#flexdashboard-navbar');
+    if (navbarItems.length)
+      navbarItems = JSON.parse(navbarItems.html());
+    addNavbarItems(navbarItems);
+
+    // find the main dashboard container
+    var dashboardContainer = $('#dashboard-container');
+
+    // resolve mobile classes
+    resolveMobileClasses(dashboardContainer);
+
+    // one time global initialization for components
+    componentsInit(dashboardContainer);
+
+    // look for a global sidebar
+    var globalSidebar = dashboardContainer.find(".section.level1.sidebar");
+    if (globalSidebar.length > 0) {
+
+      // global layout for fullscreen displays
+      if (!isMobilePhone()) {
+
+         // hoist it up to the top level
+         globalSidebar.insertBefore(dashboardContainer);
+
+         // lay it out (set width/positions)
+         layoutSidebar(globalSidebar, dashboardContainer);
+
+      // tuck sidebar into first page for mobile phones
+      } else {
+
+        // convert it into a level3 section
+        globalSidebar.removeClass('sidebar');
+        globalSidebar.removeClass('level1');
+        globalSidebar.addClass('level3');
+        var h1 = globalSidebar.children('h1');
+        var h3 = $('<h3></h3>');
+        h3.append(h1.contents());
+        h3.insertBefore(h1);
+        h1.detach();
+
+        // move it into the first page
+        var page = dashboardContainer.find('.section.level1').first();
+        if (page.length > 0)
+          page.prepend(globalSidebar);
+      }
+    }
+
+    // look for pages to layout
+    var pages = $('div.section.level1');
+    if (pages.length > 0) {
+
+        // find the navbar and collapse on clicked
+        var navbar = $('#navbar');
+        navbar.on("click", "a[data-toggle!=dropdown]", null, function () {
+           navbar.collapse('hide');
+        });
+
+        // envelop the dashboard container in a tab content div
+        dashboardContainer.wrapInner('<div class="tab-content"></div>');
+
+        pages.each(function(index) {
+
+          // lay it out
+          layoutDashboardPage($(this));
+
+          // add it to the navbar
+          addToNavbar($(this), index === 0);
+
+        });
+
+    } else {
+
+      // remove the navbar and navbar button if we don't
+      // have any navbuttons
+      if (navbarItems.length === 0) {
+        $('#navbar').remove();
+        $('#navbar-button').remove();
+      }
+
+      // add the storyboard class if requested
+      if (_options.storyboard)
+        dashboardContainer.addClass('storyboard');
+
+      // layout the entire page
+      layoutDashboardPage(dashboardContainer);
+    }
+
+    // if we are in shiny we need to trigger a window resize event to
+    // force correct layout of shiny-bound-output elements
+    if (isShinyDoc())
+      $(window).trigger('resize');
+
+    // make main components visible
+    $('.section.sidebar').css('visibility', 'visible');
+    dashboardContainer.css('visibility', 'visible');
+
+    // handle location hash
+    handleLocationHash();
+
+    // intialize prism highlighting
+    initPrismHighlighting();
+
+    // record mobile and orientation state then register a handler
+    // to refresh if resize_reload is set to true and it changes
+    _options.isMobile = isMobilePhone();
+    _options.isPortrait = isPortrait();
+    if (_options.resize_reload) {
+      $(window).on('resize', function() {
+        if (_options.isMobile !== isMobilePhone() ||
+            _options.isPortrait !== isPortrait()) {
+          window.location.reload();
+        }
+      });
+    } else {
+      // if in desktop mode and resizing to mobile, make sure the heights are 100%
+      // This enforces what `fillpage.css` does for "wider" pages.
+      // Since we are not reloading once the page becomes small, we need to force the height to 100%
+      // This is a new situation introduced when `_options.resize_reload` is `false`
+      if (! _options.isMobile) {
+        // only add if `fillpage.css` was added in the first place
+        if (_options.fillPage) {
+          // fillpage.css
+          $("html,body,#dashboard").css("height", "100%");
+        }
+      }
+    }
+    // trigger layoutcomplete event
+    dashboardContainer.trigger('flexdashboard:layoutcomplete');
+  }
+
+  function resolveMobileClasses(dashboardContainer) {
+     // add top level layout class
+    dashboardContainer.addClass(isMobilePhone() ? 'mobile-layout' :
+                                                  'desktop-layout');
+
+    // look for .mobile sections and add .no-mobile to their peers
+    var mobileSections = $('.section.mobile');
+    mobileSections.each(function() {
+       var id = $(this).attr('id');
+       var nomobileId = id.replace(/-\d+$/, '');
+       $('#' + nomobileId).addClass('no-mobile');
+    });
+  }
+
+  function addNavbarItems(navbarItems) {
+
+    var navbarLeft = $('ul.navbar-left');
+    var navbarRight = $('ul.navbar-right');
+
+    for (var i = 0; i<navbarItems.length; i++) {
+
+      // get the item
+      var item = navbarItems[i];
+
+      // determine the container
+      var container = null;
+      if (item.align === "left")
+        container = navbarLeft;
+      else
+        container = navbarRight;
+
+      // navbar menu if we have multiple items
+      if (item.items) {
+        var menu = navbarMenu(null, item.icon, item.title, container);
+        for (var j = 0; j<item.items.length; j++) {
+          var subItem = item.items[j];
+          var li = $('<li></li>');
+          var a = navbarLink(subItem.icon, subItem.title, subItem.href, subItem.target);
+          a.removeClass("nav-link").addClass("dropdown-item");
+          li.append(a);
+          menu.append(li);
+        }
+      } else {
+        var li = $('<li class="nav-item"></li>');
+        li.append(navbarLink(item.icon, item.title, item.href, item.target));
+        container.append(li);
+      }
+    }
+  }
+
+  // create or get a reference to an existing dropdown menu
+  function navbarMenu(id, icon, title, container) {
+    var existingMenu = [];
+    if (id)
+      existingMenu = container.children('#' + id);
+    if (existingMenu.length > 0) {
+      return existingMenu.children('ul');
+    } else {
+      var li = $('<li class="nav-item"></li>');
+      if (id)
+        li.attr('id', id);
+      li.addClass('dropdown');
+      // auto add "Share" title on mobile if necessary
+      if (!title && icon && (icon === "fa-share-alt") && isMobilePhone())
+        title = "Share";
+      if (title) {
+        title = title + ' <span class="caret"></span>';
+      }
+      var a = navbarLink(icon, title, "#");
+      a.addClass('dropdown-toggle');
+      a.attr('data-toggle', 'dropdown');
+      a.attr('data-bs-toggle', 'dropdown');
+      a.attr('role', 'button');
+      a.attr('aria-expanded', 'false');
+      li.append(a);
+      var ul = $('<ul class="dropdown-menu"></ul>');
+      ul.attr('role', 'menu');
+      li.append(ul);
+      container.append(li);
+      return ul;
+    }
+  }
+
+  function addToNavbar(page, active) {
+
+    // capture the id and data-icon attribute (if any)
+    var id = page.attr('id');
+    var icon = page.attr('data-icon');
+    var navmenu = page.attr('data-navmenu');
+    var navmenuIcon = page.attr('data-navmenu-icon');
+
+    // get hidden state (transfer this to navbar)
+    var hidden = page.hasClass('hidden');
+    page.removeClass('hidden');
+
+    // sanitize the id for use with bootstrap tabs
+    id = id.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_');
+    page.attr('id', id);
+
+    // get the wrapper
+    var wrapper = page.closest('.dashboard-page-wrapper');
+
+    // move the id to the wrapper
+    page.removeAttr('id');
+    wrapper.attr('id', id);
+
+    // add the tab-pane class to the wrapper
+    wrapper.addClass('tab-pane');
+
+    // get a reference to the h1, discover its inner contens, then detach it
+    var h1 = wrapper.find('h1').first();
+    var title = h1.contents();
+    h1.detach();
+
+    // create a navbar item
+    var li = $('<li></li>');
+    var a = navbarLink(icon, title, '#' + id);
+    a.attr('data-toggle', 'tab');
+    a.attr('data-bs-toggle', 'tab');
+    li.append(a);
+
+    // add it to the navbar (or navbar menu if specified)
+    var container = $('ul.navbar-left');
+    if (navmenu) {
+      var menuId = navmenu.replace(/\s+/g, '');
+      var menu = navbarMenu(menuId, navmenuIcon, navmenu, container);
+      li.find("> a").removeClass("nav-link").addClass("dropdown-item");
+      menu.append(li);
+    } else {
+      li.addClass("nav-item")
+      container.append(li);
+    }
+
+    // mark active tab and corresponding nav menu item
+    if (active)
+      $(a).tab("show");
+
+    // hide it if requested
+    if (hidden)
+      li.addClass('hidden');
+  }
+
+  function navbarLink(icon, title, href, target) {
+
+    var a = $('<a class="nav-link"></a>');
+    if (icon) {
+
+      // get the name of the icon set and icon
+      var dashPos = icon.indexOf("-");
+      var iconSet = null;
+      var iconSplit = icon.split(" ");
+      if (iconSplit.length > 1) {
+        iconSet = iconSplit[0];
+        icon = iconSplit.slice(1).join(" ");
+      } else {
+        iconSet = icon.substring(0, dashPos);
+      }
+      var iconName = icon.substring(dashPos + 1);
+
+      // create the icon
+      var iconElement = $('<span class="' + iconSet + ' ' + icon + '"></span>');
+      if (title)
+        iconElement.css('margin-right', '7px');
+      a.append(iconElement);
+      // if href is null see if we can auto-generate based on icon (e.g. social)
+      if (!href)
+        maybeGenerateLinkFromIcon(iconName, a);
+    }
+    if (title)
+      a.append(title);
+
+    // add the href.
+    if (href) {
+      if (href === "source_embed") {
+        a.attr('href', '#');
+        a.attr('data-featherlight', "#flexdashboard-source-code");
+        a.featherlight({
+            beforeOpen: function(event){
+              $('body').addClass('unselectable');
+            },
+            afterClose: function(event){
+              $('body').removeClass('unselectable');
+            }
+        });
+      } else {
+        a.attr('href', href);
+      }
+    }
+
+    // add the arget
+    if (target)
+      a.attr('target', target);
+
+    return a;
+  }
+
+  // auto generate a link from an icon name (e.g. twitter) when possible
+  function maybeGenerateLinkFromIcon(iconName, a) {
+
+     var serviceLinks = {
+      "twitter": "https://twitter.com/share?text=" + encodeURIComponent(document.title) + "&url="+encodeURIComponent(location.href),
+      "facebook": "https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href),
+      "linkedin": "https://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(location.href) + "&title=" + encodeURIComponent(document.title),
+      "pinterest": "https://pinterest.com/pin/create/link/?url="+encodeURIComponent(location.href) + "&description=" + encodeURIComponent(document.title)
+    };
+
+    var makeSocialLink = function(a, href) {
+      a.attr('href', '#');
+      a.on('click', function(e) {
+        e.preventDefault();
+        window.open(href);
+      });
+    };
+
+    $.each(serviceLinks, function(key, value) {
+      if (iconName.indexOf(key) !== -1)
+        makeSocialLink(a, value);
+    });
+  }
+
+  // layout a dashboard page
+  function layoutDashboardPage(page) {
+
+    // use a page wrapper so that free form content above the
+    // dashboard appears at the top rather than the side (as it
+    // would without the wrapper in a column orientation)
+    var wrapper = $('<div class="dashboard-page-wrapper"></div>');
+    page.wrap(wrapper);
+
+    // if there are no level2 or level3 headers synthesize a level3
+    // header to contain the (e.g. frame it, scroll container, etc.)
+    var headers = page.find('h2,h3');
+    if (headers.length === 0)
+      page.wrapInner('<div class="section level3"></div>');
+
+    // hoist up any content before level 2 or level 3 headers
+    var children = page.children();
+    children.each(function(index) {
+      if ($(this).hasClass('level2') || $(this).hasClass('level3'))
+        return false;
+      $(this).insertBefore(page);
+    });
+
+    // determine orientation and fillPage behavior for distinct media
+    var orientation, fillPage, storyboard;
+
+    // media: mobile phone
+    if (isMobilePhone()) {
+
+      // if there is a sidebar we need to ensure it's content
+      // is properly framed as an h3
+      var sidebar = page.find('.section.sidebar');
+      sidebar.removeClass('sidebar');
+      sidebar.wrapInner('<div class="section level3"></div>');
+      var h2 = sidebar.find('h2');
+      var h3 = $('<h3></h3>');
+      h3.append(h2.contents());
+      h3.insertBefore(h2);
+      h2.detach();
+
+      // wipeout h2 elements then enclose them in a single h2
+      var level2 = page.find('div.section.level2');
+      level2.each(function() {
+        level2.children('h2').remove();
+        level2.children().unwrap();
+      });
+      page.wrapInner('<div class="section level2"></div>');
+
+      // substitute mobile images
+      if (isPortrait()) {
+        var mobileFigures = $('img.mobile-figure');
+        mobileFigures.each(function() {
+          // get the src (might be base64 encoded)
+          var src = $(this).attr('src');
+
+          // find it's peer
+          var id = $(this).attr('data-mobile-figure-id');
+          var img = $('img[data-figure-id=' + id + "]");
+          img.attr('src', src)
+             .attr('width', _options.defaultFigWidthMobile)
+             .attr('height', _options.defaultFigHeightMobile);
+        });
+      }
+
+      // hoist storyboard commentary into it's own section
+      if (page.hasClass('storyboard')) {
+        var commentaryHR = page.find('div.section.level3 hr');
+        commentaryHR.each(function() {
+          var commentary = $(this).nextAll().detach();
+          var commentarySection = $('<div class="section level3"></div>');
+          commentarySection.append(commentary);
+          commentarySection.insertAfter($(this).closest('div.section.level3'));
+          $(this).remove();
+        });
+      }
+
+      // force a non full screen layout by columns
+      orientation = _options.orientation = 'columns';
+      fillPage = _options.fillPage = false;
+      storyboard = _options.storyboard = false;
+
+    // media: desktop
+    } else {
+
+      // determine orientation
+      orientation = page.attr('data-orientation');
+      if (orientation !== 'rows' && orientation != 'columns')
+        orientation = _options.orientation;
+
+      // determine storyboard mode
+      storyboard = page.hasClass('storyboard');
+
+      // fillPage based on options (force for storyboard)
+      fillPage = _options.fillPage || storyboard;
+
+      // handle sidebar
+      var sidebar = page.find('.section.level2.sidebar');
+      if (sidebar.length > 0)
+        layoutSidebar(sidebar, page);
+    }
+
+    // give it and it's parent divs height: 100% if we are in fillPage mode
+    if (fillPage) {
+      page.addClass('vertical-layout-fill');
+      page.css('height', '100%');
+      page.parents('div').css('height', '100%');
+    } else {
+      page.addClass('vertical-layout-scroll');
+    }
+
+    // perform the layout
+    if (storyboard)
+      layoutPageAsStoryboard(page);
+    else if (orientation === 'rows')
+      layoutPageByRows(page, fillPage);
+    else if (orientation === 'columns')
+      layoutPageByColumns(page, fillPage);
+  }
+
+  function layoutSidebar(sidebar, content) {
+
+    // get it out of the header hierarchy
+    sidebar = sidebar.first();
+    if (sidebar.hasClass('level1')) {
+      sidebar.removeClass('level1');
+      sidebar.children('h1').remove();
+    } else if (sidebar.hasClass('level2')) {
+      sidebar.removeClass('level2');
+      sidebar.children('h2').remove();
+    }
+
+    // determine width
+    var sidebarWidth = isTablet() ? 220 : 250;
+    var dataWidth = parseInt(sidebar.attr('data-width'));
+    if (dataWidth)
+      sidebarWidth = dataWidth;
+
+    // set the width and shift the page right to accomodate the sidebar
+    sidebar.css('width', sidebarWidth + 'px');
+    content.css('padding-left', sidebarWidth + 'px');
+
+    // wrap it's contents in a form
+    sidebar.wrapInner($('<form></form>'));
+  }
+
+  function layoutPageAsStoryboard(page) {
+
+    // create storyboard navigation
+    var nav = $('<div class="storyboard-nav"></div>');
+
+    // add navigation buttons
+    var prev = $('<button class="sbprev"><i class="fa fa-angle-left"></i></button>');
+    nav.append(prev);
+    var next= $('<button class="sbnext"><i class="fa fa-angle-right"></i></button>');
+    nav.append(next);
+
+    // add navigation frame
+    var frameList = $('<div class="sbframelist"></div>');
+    nav.append(frameList);
+    var ul = $('<ul></ul>');
+    frameList.append(ul);
+
+     // find all the level3 sections (those are the storyboard frames)
+    var frames = page.find('div.section.level3');
+    frames.each(function() {
+
+      // mark it
+      $(this).addClass('sbframe');
+
+      // divide it into chart content and (optional) commentary
+      $(this).addClass('dashboard-column-orientation');
+
+      // stuff the chart into it's own div w/ flex
+      $(this).wrapInner('<div class="sbframe-component"></div>');
+      setFlex($(this), 1);
+      var frame = $(this).children('.sbframe-component');
+
+      // extract the title from the h3
+      var li = $('<li></li>');
+      var h3 = frame.children('h3');
+      li.append(h3.contents());
+      h3.detach();
+      ul.append(li);
+
+      // extract commentary
+      var hr = frame.children('hr');
+      if (hr.length) {
+        var commentary = hr.nextAll().detach();
+        hr.remove();
+        var commentaryFrame = $('<div class="sbframe-commentary"></div>');
+        commentaryFrame.addClass('flowing-content-shim');
+        commentaryFrame.addClass('flowing-content-container');
+        commentaryFrame.append(commentary);
+        $(this).append(commentaryFrame);
+
+        // look for a data-commentary-width attribute
+        var commentaryWidth = $(this).attr('data-commentary-width');
+        if (commentaryWidth)
+          commentaryFrame.css('width', commentaryWidth + 'px');
+      }
+
+      // layout the chart (force flex)
+      var result = layoutChart(frame, true);
+
+      // ice the notes if there are none
+      if (!result.notes)
+        frame.find('.chart-notes').remove();
+
+      // set flex on chart
+      setFlex(frame, 1);
+    });
+
+    // create a div to hold all the frames
+    var frameContent = $('<div class="sbframe-content"></div>');
+    frameContent.addClass('dashboard-row-orientation');
+    frameContent.append(frames.detach());
+
+    // row orientation to stack nav and frame content
+    page.addClass('dashboard-row-orientation');
+    page.append(nav);
+    page.append(frameContent);
+    setFlex(frameContent, 1);
+
+    // initialize sly
+    var sly = new Sly(frameList, {
+    		horizontal: true,
+    		itemNav: 'basic',
+    		smart: true,
+    		activateOn: 'click',
+    		startAt: 0,
+    		scrollBy: 1,
+    		activatePageOn: 'click',
+    		speed: 200,
+    		moveBy: 600,
+    		dragHandle: true,
+    		dynamicHandle: true,
+    		clickBar: true,
+    		keyboardNavBy: 'items',
+    		next: next,
+    		prev: prev
+    	}).init();
+
+    // make first frame active
+    frames.removeClass('active');
+    frames.first().addClass('active');
+
+    // subscribe to frame changed events
+    sly.on('active', function (eventName, itemIndex) {
+      frames.removeClass('active');
+      frames.eq(itemIndex).addClass('active')
+                          .trigger('shown');
+    });
+  }
+
+  function layoutPageByRows(page, fillPage) {
+
+    // row orientation
+    page.addClass('dashboard-row-orientation');
+
+    // find all the level2 sections (those are the rows)
+    var rows = page.find('div.section.level2');
+
+    // if there are no level2 sections then treat the
+    // entire page as if it's a level 2 section
+    if (rows.length === 0) {
+      page.wrapInner('<div class="section level2"></div>');
+      rows = page.find('div.section.level2');
+    }
+
+    rows.each(function () {
+
+      // flags
+      var haveNotes = false;
+      var haveFlexHeight = true;
+
+      // remove the h2
+      $(this).children('h2').remove();
+
+      // check for a tabset
+      var isTabset = $(this).hasClass('tabset');
+      if (isTabset)
+        layoutTabset($(this));
+
+      // give it row layout semantics if it's not a tabset
+      if (!isTabset)
+        $(this).addClass('dashboard-row');
+
+      // find all of the level 3 subheads
+      var columns = $(this).find('div.section.level3');
+
+      // determine figureSizes sizes
+      var figureSizes = chartFigureSizes(columns);
+
+      // fixup the columns
+      columns.each(function(index) {
+
+        // layout the chart (force flex if we are in a tabset)
+        var result = layoutChart($(this), isTabset);
+
+        // update flexHeight state
+        if (!result.flex)
+          haveFlexHeight = false;
+
+        // update state
+        if (result.notes)
+          haveNotes = true;
+
+        // set the column flex based on the figure width
+        // (value boxes will just get the default figure width)
+        var chartWidth = figureSizes[index].width;
+        setFlex($(this), chartWidth + ' ' + chartWidth + ' 0px');
+
+      });
+
+      // remove empty chart note divs
+      if (isTabset)
+        $(this).find('.chart-notes').filter(function() {
+            return $(this).html() === "&nbsp;";
+        }).remove();
+      if (!haveNotes)
+        $(this).find('.chart-notes').remove();
+
+       // make it a flexbox row
+      if (haveFlexHeight)
+        $(this).addClass('dashboard-row-flex');
+
+      // now we can set the height on all the wrappers (based on maximum
+      // figure height + room for title and notes, or data-height on the
+      // container if specified). However, don't do this if there is
+      // no flex on any of the constituent columns
+      var flexHeight = null;
+      var dataHeight = parseInt($(this).attr('data-height'));
+      if (dataHeight)
+        flexHeight = adjustedHeight(dataHeight, columns.first());
+      else if (haveFlexHeight)
+        flexHeight = maxChartHeight(figureSizes, columns);
+      if (flexHeight) {
+        if (fillPage)
+          setFlex($(this), flexHeight + ' ' + flexHeight + ' 0px');
+        else {
+          $(this).css('height', flexHeight + 'px');
+          setFlex($(this), '0 0 ' + flexHeight + 'px');
+        }
+      }
+
+    });
+  }
+
+  function layoutPageByColumns(page, fillPage) {
+
+    // column orientation
+    page.addClass('dashboard-column-orientation');
+
+    // find all the level2 sections (those are the columns)
+    var columns = page.find('div.section.level2');
+
+    // if there are no level2 sections then treat the
+    // entire page as if it's a level 2 section
+    if (columns.length === 0) {
+      page.wrapInner('<div class="section level2"></div>');
+      columns = page.find('div.section.level2');
+    }
+
+    // layout each column
+    columns.each(function (index) {
+
+      // remove the h2
+      $(this).children('h2').remove();
+
+      // make it a flexbox column
+      $(this).addClass('dashboard-column');
+
+      // check for a tabset
+      var isTabset = $(this).hasClass('tabset');
+      if (isTabset)
+        layoutTabset($(this));
+
+      // find all the h3 elements
+      var rows = $(this).find('div.section.level3');
+
+      // get the figure sizes for the rows
+      var figureSizes = chartFigureSizes(rows);
+
+      // column flex is the max row width (or data-width if specified)
+      var flexWidth;
+      var dataWidth = parseInt($(this).attr('data-width'));
+      if (dataWidth)
+        flexWidth = dataWidth;
+      else
+        flexWidth = maxChartWidth(figureSizes);
+      setFlex($(this), flexWidth + ' ' + flexWidth + ' 0px');
+
+      // layout each chart
+      rows.each(function(index) {
+
+        // perform the layout
+        var result = layoutChart($(this), false);
+
+        // ice the notes if there are none
+        if (!result.notes)
+          $(this).find('.chart-notes').remove();
+
+        // set flex height based on figHeight, then adjust
+        if (result.flex) {
+          var chartHeight = figureSizes[index].height;
+          chartHeight = adjustedHeight(chartHeight, $(this));
+          if (fillPage)
+            setFlex($(this), chartHeight + ' ' + chartHeight + ' 0px');
+          else {
+            $(this).css('height', chartHeight + 'px');
+            setFlex($(this), chartHeight + ' ' + chartHeight + ' ' + chartHeight + 'px');
+          }
+        }
+      });
+    });
+  }
+
+  function chartFigureSizes(charts) {
+
+    // sizes
+    var figureSizes = new Array(charts.length);
+
+    // check each chart
+    charts.each(function(index) {
+
+      // start with default
+      figureSizes[index] = {
+        width: _options.defaultFigWidth,
+        height: _options.defaultFigHeight
+      };
+
+      // look for data-height or data-width then knit options
+      var dataWidth = parseInt($(this).attr('data-width'));
+      var dataHeight = parseInt($(this).attr('data-height'));
+      var knitrOptions = $(this).find('.knitr-options:first');
+      var knitrWidth, knitrHeight;
+      if (knitrOptions) {
+        knitrWidth = parseInt(knitrOptions.attr('data-fig-width'));
+        knitrHeight =  parseInt(knitrOptions.attr('data-fig-height'));
+      }
+
+      // width
+      if (dataWidth)
+        figureSizes[index].width = dataWidth;
+      else if (knitrWidth)
+        figureSizes[index].width = knitrWidth;
+
+      // height
+      if (dataHeight)
+        figureSizes[index].height = dataHeight;
+      else if (knitrHeight)
+        figureSizes[index].height = knitrHeight;
+    });
+
+    // return sizes
+    return figureSizes;
+  }
+
+  function maxChartHeight(figureSizes, charts) {
+
+    // first compute the maximum height
+    var maxHeight = _options.defaultFigHeight;
+    for (var i = 0; i<figureSizes.length; i++)
+      if (figureSizes[i].height > maxHeight)
+        maxHeight = figureSizes[i].height;
+
+    // now add offests for chart title and chart notes
+    if (charts.length)
+      maxHeight = adjustedHeight(maxHeight, charts.first());
+
+    return maxHeight;
+  }
+
+  function adjustedHeight(height, chart) {
+    if (chart.length > 0) {
+      var chartTitle = chart.find('.chart-title');
+      if (chartTitle.length)
+        height += chartTitle.first().outerHeight();
+      var chartNotes = chart.find('.chart-notes');
+      if (chartNotes.length)
+        height += chartNotes.first().outerHeight();
+    }
+    return height;
+  }
+
+  function maxChartWidth(figureSizes) {
+    var maxWidth = _options.defaultFigWidth;
+    for (var i = 0; i<figureSizes.length; i++)
+      if (figureSizes[i].width > maxWidth)
+        maxWidth = figureSizes[i].width;
+    return maxWidth;
+  }
+
+  // layout a chart
+  function layoutChart(chart, forceFlex) {
+
+    // state to return
+    var result = {
+      notes: false,
+      flex: false
+    };
+
+    // extract the title
+    var title = extractTitle(chart);
+
+    // find components that apply to this container
+    var components = componentsFind(chart);
+
+    // if it's a custom component then call it and return
+    var customComponents = componentsCustom(components);
+    if (customComponents.length) {
+      componentsLayout(customComponents, title, chart);
+      result.notes = false;
+      result.flex = forceFlex || componentsFlex(customComponents);
+      return result;
+    }
+
+    // put all the content in a chart wrapper div
+    chart.addClass('chart-wrapper');
+    chart.wrapInner('<div class="chart-stage"></div>');
+    var chartContent = chart.children('.chart-stage');
+
+    // flex the content if appropriate
+    result.flex = forceFlex || componentsFlex(components);
+    if (result.flex) {
+      // add flex classes
+      chart.addClass('chart-wrapper-flex');
+      chartContent.addClass('chart-stage-flex');
+
+      // additional shim to break out of flexbox sizing
+      chartContent.wrapInner('<div class="chart-shim"></div>');
+      chartContent = chartContent.children('.chart-shim');
+    }
+
+    // set custom data-padding attribute
+    var pad = chart.attr('data-padding');
+    if (pad) {
+      if (pad === "0")
+        chart.addClass('no-padding');
+      else {
+        pad = pad + 'px';
+        chartContent.css('left', pad)
+                    .css('top', pad)
+                    .css('right', pad)
+                    .css('bottom', pad)
+      }
+    }
+
+    // call compoents
+    componentsLayout(components, title, chartContent);
+
+    // also activate components on shiny output
+    findShinyOutput(chartContent).on('shiny:value',
+      function(event) {
+        var element = $(event.target);
+        setTimeout(function() {
+
+          // see if we opted out of flex based on our output (for shiny
+          // we can't tell what type of output we have until after the
+          // value is bound)
+          var components = componentsFind(element);
+          var flex = forceFlex || componentsFlex(components);
+          if (!flex) {
+            chart.css('height', "");
+            setFlex(chart, "");
+            chart.removeClass('chart-wrapper-flex');
+            chartContent.removeClass('chart-stage-flex');
+            chartContent.children().unwrap();
+          }
+
+          // perform layout
+          componentsLayout(components, title, element.parent());
+        }, 10);
+      });
+
+    // add the title
+    var chartTitle = $('<div class="chart-title"></div>');
+    chartTitle.append(title);
+    chart.prepend(chartTitle);
+
+    // add the notes section
+    var chartNotes = $('<div class="chart-notes"></div>');
+    chartNotes.html('&nbsp;');
+    chart.append(chartNotes);
+
+    // attempt to extract notes if we have a component
+    if (components.length)
+      result.notes = extractChartNotes(chartContent, chartNotes);
+
+    // return result
+    return result;
+  }
+
+  // build a tabset from a section div with the .tabset class
+  function layoutTabset(tabset) {
+
+    // check for fade option
+    var fade = tabset.hasClass("tabset-fade");
+    var pills = tabset.hasClass("tabset-pills");
+    var navClass = pills ? "nav-pills" : "nav-tabs";
+
+    // determine the heading level of the tabset and tabs
+    var match = tabset.attr('class').match(/level(\d) /);
+    if (match === null)
+      return;
+    var tabsetLevel = Number(match[1]);
+    var tabLevel = tabsetLevel + 1;
+
+    // find all subheadings immediately below
+    var tabs = tabset.find("div.section.level" + tabLevel);
+    if (!tabs.length)
+      return;
+
+    // create tablist and tab-content elements
+    var tabList = $('<ul class="nav ' + navClass + '" role="tablist"></ul>');
+    $(tabs[0]).before(tabList);
+    var tabContent = $('<div class="tab-content"></div>');
+    $(tabs[0]).before(tabContent);
+
+    // build the tabset
+    var activeTab = 0;
+    tabs.each(function(i) {
+
+      // get the tab div
+      var tab = $(tabs[i]);
+
+      // get the id then sanitize it for use with bootstrap tabs
+      var id = tab.attr('id');
+
+      // see if this is marked as the active tab
+      if (tab.hasClass('active'))
+        activeTab = i;
+
+      // sanitize the id for use with bootstrap tabs
+      id = id.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_');
+      tab.attr('id', id);
+
+      // get the heading element within it and grab it's text
+      var heading = tab.find('h' + tabLevel + ':first');
+      var headingDom = heading.contents();
+
+      // build and append the tab list item
+      var a = $('<a role="tab" data-toggle="tab" data-bs-toggle="tab" class="nav-link"></a>');
+      a.append(headingDom);
+      a.attr('href', '#' + id);
+      a.attr('aria-controls', id);
+      var li = $('<li role="presentation" class="nav-item"></li>');
+      li.append(a);
+      tabList.append(li);
+
+      // set it's attributes
+      tab.attr('role', 'tabpanel');
+      tab.addClass('tab-pane');
+      tab.addClass('tabbed-pane');
+      tab.addClass('no-title');
+      if (fade)
+        tab.addClass('fade');
+
+      // move it into the tab content div
+      tab.detach().appendTo(tabContent);
+    });
+
+    // set active tab
+    $(tabList.children()[activeTab]).tab("show");
+    var active = $(tabContent.children('div.section')[activeTab]);
+    active.addClass('active');
+    if (fade)
+      active.addClass('in');
+
+    // add nav-tabs-custom
+    tabset.addClass('nav-tabs-custom');
+
+    // internal layout is dashboard-column with tab-content flexing
+    tabset.addClass('dashboard-column');
+    setFlex(tabContent, 1);
+  }
+
+  // one time global initialization for components
+  function componentsInit(dashboardContainer) {
+    for (var i=0; i<window.FlexDashboardComponents.length; i++) {
+      var component = window.FlexDashboardComponents[i];
+      if (component.init)
+        component.init(dashboardContainer);
+    }
+  }
+
+  // find components that apply within a container
+  function componentsFind(container) {
+
+    // look for components
+    var components = [];
+    for (var i=0; i<window.FlexDashboardComponents.length; i++) {
+      var component = window.FlexDashboardComponents[i];
+      if (component.find(container).length)
+        components.push(component);
+    }
+
+    // if there were none then use a special flowing content component
+    // that just adds a scrollbar in fillPage mode
+    if (components.length == 0) {
+      components.push({
+        find: function(container) {
+          return container;
+        },
+
+        flex: function(fillPage) {
+          return fillPage;
+        },
+
+        layout: function(title, container, element, fillPage) {
+          if (fillPage) {
+            container.addClass('flowing-content-shim');
+            container.addClass('flowing-content-container');
+          }
+        }
+      });
+    }
+
+    return components;
+  }
+
+  // if there is a custom component then pick it out
+  function componentsCustom(components) {
+    var customComponent = [];
+    for (var i=0; i<components.length; i++)
+      if (components[i].type === "custom") {
+        customComponent.push(components[i]);
+        break;
+      }
+    return customComponent;
+  }
+
+  // query all components for flex
+  function componentsFlex(components) {
+
+    // no components at all means no flex
+    if (components.length === 0)
+      return false;
+
+    // otherwise query components (assume true unless we see false)
+    var isMobile = isMobilePhone();
+    for (var i=0; i<components.length; i++)
+      if (components[i].flex && !components[i].flex(_options.fillPage))
+        return false;
+    return true;
+  }
+
+  // layout all components
+  function componentsLayout(components, title, container) {
+    var isMobile = isMobilePhone();
+    for (var i=0; i<components.length; i++) {
+      var element = components[i].find(container);
+      if (components[i].layout) {
+        // call layout (don't call other components if it returns false)
+        var result = components[i].layout(title, container, element, _options.fillPage);
+        if (result === false)
+          return;
+      }
+    }
+  }
+
+  // get a reference to the h3, discover it's inner html, and remove it
+  function extractTitle(container) {
+    var h3 = container.children('h3').first();
+    var title = '';
+    if (!container.hasClass('no-title'))
+      title = h3.contents();
+    h3.detach();
+    return title;
+  }
+
+  // extract chart notes
+  function extractChartNotes(chartContent, chartNotes) {
+    // look for a terminating blockquote or image caption
+    var blockquote = chartContent.children('blockquote:last-child');
+    var caption = chartContent.children('div.image-container')
+                              .children('p.caption');
+    if (blockquote.length) {
+      chartNotes.empty().append(blockquote.children('p:first-child').contents());
+      blockquote.remove();
+      return true;
+    } else if (caption.length) {
+      chartNotes.empty().append(caption.contents());
+      caption.remove();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function findShinyOutput(chartContent) {
+    return chartContent.find('.shiny-text-output, .shiny-html-output');
+  }
+
+  // safely detect rendering on a mobile phone
+  function isMobilePhone() {
+    try
+    {
+      return ! window.matchMedia("only screen and (min-width: 768px)").matches;
+    }
+    catch(e) {
+      return false;
+    }
+  }
+
+  function isFillPage() {
+    return _options.fillPage;
+  }
+
+  // detect portrait mode
+  function isPortrait() {
+    return ($(window).width() < $(window).height());
+  }
+
+  // safely detect rendering on a tablet
+  function isTablet() {
+    try
+    {
+      return window.matchMedia("only screen and (min-width: 769px) and (max-width: 992px)").matches;
+    }
+    catch(e) {
+      return false;
+    }
+  }
+
+  // test whether this is a shiny doc
+  function isShinyDoc() {
+    return (typeof(window.Shiny) !== "undefined" && !!window.Shiny.outputBindings);
+  }
+
+  // set flex using vendor specific prefixes
+  function setFlex(el, flex) {
+    el.css('-webkit-box-flex', flex)
+      .css('-webkit-flex', flex)
+      .css('-ms-flex', flex)
+      .css('flex', flex);
+  }
+
+  // support bookmarking of pages
+  function handleLocationHash() {
+
+    // restore tab/page from bookmark
+    var hash = window.decodeURIComponent(window.location.hash);
+    if (hash.length > 0) {
+      // Update the tab without .showPage() so that we don't change page history
+      $('ul.nav a[href="' + hash + '"]').tab('show');
+    }
+
+    // navigate to a tab when the history changes
+    window.addEventListener("popstate", function(e) {
+      var hash = window.decodeURIComponent(window.location.hash);
+      var activeTab = $('ul.nav a[href="' + hash + '"]');
+      if (activeTab.length) {
+        activeTab.tab('show');
+      } else {
+        // returning to the base page URL without a hash activates first tab
+        $('ul.nav a:first').tab('show');
+      }
+    });
+
+    // add a hash to the URL when the user clicks on a tab/page
+    $('.navbar-nav a[data-toggle="tab"]').on('click', function(e) {
+      var baseUrl = FlexDashboardUtils.urlWithoutHash(window.location.href);
+      var hash = FlexDashboardUtils.urlHash($(this).attr('href'));
+      var href = baseUrl + hash;
+      FlexDashboardUtils.setLocation(href);
+    });
+
+    // handle clicks of other links that should activate pages
+    var navPages = $('ul.navbar-nav li a[data-toggle=tab]');
+    navPages.each(function() {
+      var href =  $(this).attr('href');
+      var links = $('a[href="' + href + '"][data-toggle!=tab]');
+      links.each(function() {
+        $(this).on('click', function(e) {
+          window.FlexDashboardUtils.showPage(href);
+        });
+      });
+    });
+  }
+
+  // tweak Prism highlighting
+  function initPrismHighlighting() {
+
+    if (window.Prism) {
+      Prism.languages.insertBefore('r', 'comment', {
+        'heading': [
+          {
+            // title 1
+        	  // =======
+
+        	  // title 2
+        	  // -------
+        	  pattern: /\w+.*(?:\r?\n|\r)(?:====+|----+)/,
+            alias: 'operator'
+          },
+          {
+            // ### title 3
+            pattern: /(^\s*)###[^#].+/m,
+            lookbehind: true,
+            alias: 'operator'
+          }
+        ]
+      });
+
+      // prism highlight
+      Prism.highlightAll();
+    }
+  }
+
+  FlexDashboard.prototype = {
+    constructor: FlexDashboard,
+    init: init,
+    isMobilePhone: isMobilePhone,
+    isFillPage: isFillPage
+  };
+
+  return FlexDashboard;
+
+})();
+
+// utils
+window.FlexDashboardUtils = {
+  resizableImage: function(img) {
+    var src = img.attr('src');
+    var url = 'url("' + src + '")';
+    img.parent().css('background', url)
+                .css('background-size', 'contain')
+                .css('background-repeat', 'no-repeat')
+                .css('background-position', 'center')
+                .addClass('image-container');
+  },
+  setLocation: function(href) {
+    if (history && history.pushState) {
+      history.pushState(null, null, href);
+    } else {
+      window.location.replace(href);
+    }
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 10);
+  },
+  showPage: function(href) {
+    $('ul.navbar-nav li a[href="' + href + '"]').tab('show');
+    var baseUrl = this.urlWithoutHash(window.location.href);
+    var loc = baseUrl + href;
+    this.setLocation(loc);
+  },
+  showLinkedValue: function(href) {
+    // check for a page link
+    if ($('ul.navbar-nav li a[data-toggle=tab][href="' + href + '"]').length > 0)
+      this.showPage(href);
+    else
+      window.open(href);
+  },
+  urlWithoutHash: function(url) {
+    var hashLoc = url.indexOf('#');
+    if (hashLoc != -1)
+      return url.substring(0, hashLoc);
+    else
+      return url;
+  },
+  urlHash: function(url) {
+    var hashLoc = url.indexOf('#');
+    if (hashLoc != -1)
+      return url.substring(hashLoc);
+    else
+      return "";
+  }
+};
+
+window.FlexDashboard = new FlexDashboard();
+
+// empty content
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    if (container.find('p').length == 0)
+      return container;
+    else
+      return $();
+  }
+})
+
+// plot image
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('p')
+                    .children('img:only-child');
+  },
+
+  layout: function(title, container, element, fillPage) {
+    FlexDashboardUtils.resizableImage(element);
+  }
+});
+
+// plot image (figure style)
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('div.figure').children('img');
+  },
+
+  layout: function(title, container, element, fillPage) {
+    FlexDashboardUtils.resizableImage(element);
+  }
+});
+
+// htmlwidget
+window.FlexDashboardComponents.push({
+
+  init: function(dashboardContainer) {
+    // trigger "shown" after initial layout to force static htmlwidgets
+    // in runtime: shiny to be resized after the dom has been transformed
+    dashboardContainer.on('flexdashboard:layoutcomplete', function(event) {
+      setTimeout(function() {
+        dashboardContainer.trigger('shown');
+      }, 200);
+    });
+  },
+
+  find: function(container) {
+    return container.children('div[id^="htmlwidget-"],div.html-widget');
+  }
+});
+
+// gauge
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.children('div.html-widget.gauge');
+  },
+
+  flex: function(fillPage) {
+    return false;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+
+  }
+
+});
+
+// shiny output
+window.FlexDashboardComponents.push({
+  find: function(container) {
+    return container.children('div[class^="shiny-"]');
+  }
+});
+
+// bootstrap table
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    var bsTable = container.find('table.table');
+    if (bsTable.length !== 0)
+      return bsTable;
+    else
+      return container.find('tr.header').parent('thead').parent('table');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+    // alias variables
+    var bsTable = element;
+
+    // fixup xtable generated tables with a proper thead
+    var headerRow = bsTable.find('tbody > tr:first-child > th').parent();
+    if (headerRow.length > 0) {
+      var thead = $('<thead></thead>');
+      bsTable.prepend(thead);
+      headerRow.detach().appendTo(thead);
+    }
+
+    // improve appearance
+    container.addClass('bootstrap-table');
+
+    // for fill page provide scrolling w/ sticky headers
+    if (fillPage) {
+      // force scrollbar on overflow
+      container.addClass('flowing-content-shim');
+
+      // stable table headers when scrolling
+      bsTable.stickyTableHeaders({
+        scrollableArea: container
+      });
+    }
+  }
+});
+
+// embedded shiny app
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.find('iframe.shiny-frame');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+    if (fillPage) {
+      element.attr('height', '100%');
+    } else {
+      // provide default height if necessary
+      var height = element.get(0).style.height;
+      if (!height)
+        height = element.attr('height');
+      if (!height)
+        element.attr('height', 500);
+    }
+  }
+});
+
+// shiny fillRow or fillCol
+window.FlexDashboardComponents.push({
+
+  find: function(container) {
+    return container.find('.flexfill-container');
+  },
+
+  flex: function(fillPage) {
+    return fillPage;
+  },
+
+  layout: function(title, container, element, fillPage) {
+    if (fillPage)
+      element.css('height', '100%');
+    else {
+      // provide default height if necessary
+      var height = element.get(0).style.height;
+      if (height === "100%" || height === "auto" || height === "initial" ||
+          height === "inherit" || !height) {
+        element.css('height', 500);
+      }
+    }
+  }
+});
+
+// valueBox
+window.FlexDashboardComponents.push({
+
+  type: "custom",
+
+  find: function(container) {
+    if (container.find('span.value-output, .shiny-valuebox-output').length)
+      return container;
+    else
+      return $();
+  },
+
+  flex: function(fillPage) {
+    return false;
+  },
+
+  layout: function(title, container, element, fillPage) {
+
+    // alias variables
+    var chartTitle = title;
+    var valueBox = element;
+
+    // add value-box class to container
+    container.addClass('value-box');
+
+    // value paragraph
+    var value = $('<p class="value"></p>');
+
+    // if we have shiny-text-output then just move it in
+    var valueOutputSpan = [];
+    var shinyOutput = valueBox.find('.shiny-valuebox-output').detach();
+    if (shinyOutput.length) {
+      valueBox.children().remove();
+      shinyOutput.html("&mdash;");
+      value.append(shinyOutput);
+    } else {
+      // extract the value (remove leading vector index)
+      var chartValue = valueBox.text().trim();
+      chartValue = chartValue.replace("[1] ", "");
+      valueOutputSpan = valueBox.find('span.value-output').detach();
+      valueBox.children().remove();
+      value.text(chartValue);
+    }
+
+    // caption
+    var caption = $('<p class="caption"></p>');
+    caption.append(chartTitle);
+
+    // build inner div for value box and add it
+    var inner = $('<div class="inner"></div>');
+    inner.append(value);
+    inner.append(caption);
+    valueBox.append(inner);
+
+    // add icon if specified
+    var icon = $('<div class="icon"><i></i></div>');
+    valueBox.append(icon);
+    function setIcon(chartIcon) {
+      var iconLib = "";
+      var iconSplit = chartIcon.split(" ");
+      if (iconSplit.length > 1) {
+        iconLib = iconSplit[0];
+        chartIcon = iconSplit.slice(1).join(" ");
+      } else {
+        var components = chartIcon.split("-");
+        if (components.length > 1)
+          iconLib = components[0];
+      }
+      icon.children('i').attr('class', iconLib + ' ' + chartIcon);
+    }
+    var chartIcon = valueBox.attr('data-icon');
+    if (chartIcon)
+      setIcon(chartIcon);
+
+    // handle data attributes in valueOutputSpan
+    function handleValueOutput(valueOutput) {
+
+      // caption
+      var dataCaption = valueOutput.attr('data-caption');
+      if (dataCaption)
+        caption.html(dataCaption);
+
+      // icon
+      var dataIcon = valueOutput.attr('data-icon');
+      if (dataIcon)
+        setIcon(dataIcon);
+
+      // If valueBox(color=) was an accent color, this attr should
+      // be populated with the accent color and the relevant CSS comes
+      // in through HTML dependencies
+      var dataColorAccent = valueOutput.attr('data-color-accent');
+      var valueBoxClasses = "value-box-" + (["primary", "info", "danger", "warning", "success"].join(" value-box-"));
+      if (dataColorAccent) {
+        valueBox.removeClass(valueBoxClasses);
+        valueBox.addClass('value-box-' + dataColorAccent);
+      }
+
+      // If valueBox(color=) was a CSS color, these other data-color-*
+      // attrs will be populated
+      var dataColor = valueOutput.attr('data-color');
+      if (dataColor) {
+        valueBox.removeClass(valueBoxClasses);
+        valueBox.css('background-color', dataColor);
+      }
+      var dataColorText = valueOutput.attr('data-color-text');
+      if (dataColorText) {
+        valueBox.find(".inner").css('color', dataColorText);
+      }
+      var dataColorIcon = valueOutput.attr('data-color-icon');
+      if (dataColorIcon) {
+        valueBox.find(".icon").css('color', dataColorIcon);
+      }
+
+      // url
+      var dataHref = valueOutput.attr('data-href');
+      if (dataHref) {
+        valueBox.addClass('linked-value');
+        valueBox.off('click.value-box');
+        valueBox.on('click.value-box', function(e) {
+          window.FlexDashboardUtils.showLinkedValue(dataHref);
+        });
+      }
+    }
+
+    // check for a valueOutputSpan
+    if (valueOutputSpan.length > 0) {
+      handleValueOutput(valueOutputSpan);
+    }
+
+    // if we have a shinyOutput then bind a listener to handle
+    // new valueOutputSpan values
+    shinyOutput.on('shiny:value',
+      function(event) {
+        var element = $(event.target);
+        setTimeout(function() {
+          var valueOutputSpan = element.find('span.value-output');
+          if (valueOutputSpan.length > 0)
+            handleValueOutput(valueOutputSpan);
+        }, 10);
+      }
+    );
+  }
+});
+</script>
+
+<div id="dashboard-container">
+
+<div id="column" class="section level2" data-width="650">
+<h2>Column</h2>
+<div id="scatter-plot-of-order-numbers-across-different-hours-of-day"
+class="section level3">
+<h3>Scatter plot of Order numbers across Different Hours of Day</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-638468d5668c7d937c39" style="width:576px;height:460.8px;"></div>
+<script type="application/json" data-for="htmlwidget-638468d5668c7d937c39">{"x":{"visdat":{"41e0665dd718":["function () ","plotlyVisDat"]},"cur_data":"41e0665dd718","attrs":{"41e0665dd718":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Hours during a Day"},"yaxis":{"domain":[0,1],"automargin":true,"title":"# of Orders"},"title":"Scatter plot of # of Orders in each hour of a Day","hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2,14,21,14,16,9,13,19,22,18,13,13,15,14,8,14,8,15,14,9,14,13,11,9,13,17,8,10,12,13,9,14,10,10,16,12,15,16,10,10,14,13,9,7,12,14,22,20,14,14,12,11,10,8,19,16,13,11,11,12,20,10,0,10,11,18,17,14,6,12,7,16,9,13,0,16,14,18,21,17,13,11,15,19,10,15,13,15,21,13,18,20,16,18,14,11,20,13,16,10,8,9,13,10,14,11,21,20,8,10,10,18,16,11,15,10,16,11,11,17,16,12,15,14,13,16,17,18,9,14,18,23,13,7,13,15,10,22,11,18,9,15,17,16,12,14,21,17,8,10,12,15,11,8,19,14,15,15,1,16,12,13,12,16,11,12,10,1,13,14,19,17,14,19,12,16,16,15,14,10,17,12,15,3,11,16,13,12,11,17,15,10,19,12,20,12,9,17,16,8,9,10,10,10,13,11,18,17,11,8,17,16,11,16,14,16,13,13,12,13,17,0,15,10,15,10,15,11,10,19,14,16,22,11,14,14,19,11,10,8,17,11,10,8,10,9,17,13,16,12,11,19,8,20,11,21,9,19,22,11,11,14,18,10,10,8,19,12,22,4,12,13,15,11,12,18,10,15,15,10,15,10,12,16,18,1,17,0,10,18,17,9,0,15,11,14,11,14,15,17,15,12,19,13,16,8,12,9,11,17,19,12,19,15,14,8,11,16,15,11,20,14,7,13,10,21,5,10,15,13,17,11,9,18,15,11,16,12,0,11,10,11,15,9,7,14,8,19,13,3,15,9,14,17,13,12,8,11,8,22,14,19,18,15,19,20,11,17,9,16,10,9,15,13,19,14,8,15,10,9,18,8,23,13,10,14,10,21,16,17,13,10,15,13,14,9,13,17,15,19,10,16,12,9,17,13,21,9,14,12,1,13,16,18,17,9,18,14,23,11,11,11,17,10,20,20,7,22,15,13,11,15,12,10,14,13,22,14,11,12,13,19,10,12,11,17,13,17,10,10,16,11,17,13,13,11,13,6,14,10,15,13,15,10,22,18,8,12,2,11,1,16,18,12,13,11,13,15,14,17,20,9,13,16,8,17,19,12,8,14,17,12,10,14,8,18,9,10,21,13,11,23,23,7,7,21,14,11,12,10,16,10,11,16,18,6,13,15,12,19,14,7,19,9,13,13,13,15,22,17,14,19,17,16,20,21,12,12,14,11,19,14,12,9,14,9,14,10,12,2,10,18,13,19,15,0,11,11,14,0,10,7,11,11,11,17,7,8,23,11,8,8,19,14,11,18,19,18,22,17,13,7,11,10,20,10,16,13,9,12,14,13,10,14,13,18,7,14,14,23,16,16,16,13,14,14,22,14,13,22,15,9,11,9,12,22,15,19,7,12,20,9,17,20,12,9,11,13,13,9,10,19,14,12,13,17,15,12,18,10,13,16,12,19,16,15,20,17,21,11,2,13,9,19,11,18,14,9,13,10,9,15,12,7,21,16,6,16,17,17,10,20,21,17,15,19,18,15,11,19,12,14,23,11,14,16,9,8,19,17,13,16,12,21,19,17,10,16,20,14,9,9,13,12,15,17,9,16,13,15,19,15,6,17,3,12,21,9,12,14,18,16,12,21,13,14,18,10,10,23,10,10,10,12,12,8,20,10,22,10,10,8,18,8,9,14,17,16,8,12,14,7,10,10,17,11,15,9,17,17,13,20,0,21,14,19,16,13,14,12,12,6,12,10,18,14,8,12,14,21,17,13,15,19,20,15,16,9,12,21,15,15,10,23,12,16,11,15,17,15,20,19,7,14,12,10,14,11,14,18,20,15,14,12,9,11,13,20,15,11,18,14,22,17,17,10,23,9,16,16,11,15,12,20,13,13,19,14,15,9,12,11,20,10,11,19,11,12,21,8,10,17,20,9,13,12,11,15,15,11,11,12,13,18,13,13,20,9,9,12,11,10,16,21,7,13,14,8,17,11,17,14,12,10,11,17,7,22,9,10,12,18,16,13,17,9,15,13,14,17,9,16,10,7,14,19,16,14,14,14,9,21,10,12,15,7,16,14,19,11,11,12,10,8,11,11,13,13,18,12,10,8,18,9,1,21,12,13,16,10,14,12,16,7,10,22,19,12,22,14,14,10,16,9,10,12,13,11,13,11,17,16,22,16,8,14,17,17,12,12,8,18,13,17,14,17,13,9,12,13,20,12,18,16,10,20,17,18,17,9,16,10,16,11,18,16,12,13,9,21],"y":[27,8,10,6,4,20,4,4,19,10,4,16,5,7,6,32,14,4,72,6,33,73,8,16,8,7,36,8,4,13,9,7,8,10,10,9,5,12,5,27,4,100,46,12,13,5,10,8,30,11,20,6,20,47,6,30,4,13,19,6,6,25,13,22,14,91,4,31,78,33,13,13,40,56,33,6,4,9,5,15,4,5,28,9,17,10,23,16,27,37,14,5,5,4,5,14,13,7,7,7,8,4,8,4,6,6,23,4,12,64,34,4,6,5,13,27,21,11,21,50,6,9,6,6,9,16,5,6,26,5,5,21,4,4,41,7,13,19,13,8,6,10,14,9,10,9,6,25,20,64,10,25,11,48,21,16,9,6,4,74,28,11,6,12,12,6,6,16,6,5,7,9,4,20,17,29,18,8,60,28,5,7,8,10,26,6,6,5,12,44,22,24,5,19,19,13,5,21,11,8,11,6,38,10,27,46,6,28,4,59,62,5,10,19,5,26,59,10,4,4,9,8,4,12,5,22,6,17,6,22,24,5,11,10,6,28,7,10,7,55,6,6,12,18,7,4,9,6,17,5,29,5,16,17,4,17,7,8,26,17,5,17,9,4,9,19,5,4,20,14,9,18,14,4,19,28,23,5,8,15,6,43,27,7,25,20,19,10,24,13,13,37,6,16,7,8,9,42,7,4,36,21,9,12,5,11,13,10,5,16,10,13,4,58,39,70,17,39,6,8,6,18,20,17,5,6,15,7,7,9,4,6,100,5,9,13,5,37,50,12,10,9,6,6,6,27,5,5,5,6,5,4,70,40,5,10,9,14,7,5,33,7,49,10,6,6,8,5,79,7,48,8,15,6,48,8,13,14,7,59,6,8,8,12,19,28,4,6,9,7,16,11,72,29,19,36,52,37,22,5,8,13,22,13,7,8,13,7,13,10,23,65,17,19,7,10,6,7,27,37,8,13,11,4,10,7,53,8,16,13,10,5,6,22,5,5,4,6,30,10,5,5,40,7,4,37,25,7,24,4,7,7,17,13,19,7,36,32,42,31,4,24,17,49,28,8,18,79,4,36,36,6,20,7,11,11,26,20,8,16,51,6,4,13,13,4,16,14,4,4,7,17,55,15,10,4,6,12,6,12,4,9,5,27,18,4,15,14,4,4,7,52,8,6,9,34,55,52,5,9,19,8,4,17,38,7,23,10,46,37,12,11,4,26,20,16,40,6,6,7,4,11,14,78,10,20,21,54,21,8,22,9,6,10,17,5,6,40,14,14,83,8,5,12,20,14,24,4,4,12,7,6,5,11,13,22,4,30,16,4,8,9,70,5,13,26,9,17,4,17,10,11,11,9,11,20,4,42,26,16,11,14,50,11,8,15,11,12,7,18,6,58,11,5,4,17,4,6,10,12,14,6,11,13,4,17,12,6,4,5,4,43,5,42,28,28,4,4,15,5,61,27,11,25,17,44,27,5,22,15,41,6,29,4,4,6,6,4,33,5,29,5,15,5,25,15,55,37,12,43,44,100,5,5,8,4,5,9,4,32,37,4,12,21,9,25,5,30,7,8,38,10,8,20,6,10,8,7,6,30,10,6,48,24,16,31,4,4,35,9,22,4,4,9,12,58,6,19,6,46,27,4,13,7,10,75,6,47,6,7,9,20,12,14,12,6,5,5,5,8,31,36,4,9,27,4,41,18,25,10,11,6,18,38,7,15,9,34,12,8,12,21,26,4,4,26,5,8,9,100,39,10,24,12,6,12,40,5,5,6,7,13,4,10,46,18,6,10,18,35,4,19,74,24,6,22,17,5,10,18,7,22,20,7,6,13,10,13,39,19,5,12,6,15,15,15,56,51,6,15,51,26,10,21,16,4,10,11,16,5,33,11,5,22,23,4,20,4,4,10,21,47,44,17,4,4,38,8,9,5,4,25,6,8,4,13,17,28,9,8,59,14,8,19,17,7,66,18,28,14,37,16,33,44,13,6,6,100,5,4,7,52,12,12,24,5,5,5,19,16,12,5,5,12,7,26,8,12,44,49,35,4,5,5,21,11,4,64,4,20,4,5,13,10,4,4,5,4,67,7,8,7,17,60,18,32,8,46,5,7,6,6,29,9,7,23,8,4,14,7,7,8,24,13,5,12,19,27,23,16,11,4,4,6,5,44,24,8,4,28,12,25,4,4,30,10,5,18,19,29,18,13,20,5,12,16,4,24,18,13,42,13,4,12,22,40,13,4,4,22,71,9,15,8,23,6,13,17,6,18],"type":"scatter","mode":"markers","marker":{"colorbar":{"title":"department_id","ticklen":2},"cmin":1,"cmax":21,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[7,15,15,1,1,4,9,19,4,4,4,1,4,20,1,4,13,19,17,15,16,16,7,7,9,4,13,4,4,4,3,20,4,7,1,1,4,17,4,7,4,13,12,19,1,20,7,19,16,19,1,17,19,16,4,4,19,3,7,12,4,4,7,4,3,16,16,17,3,19,7,1,16,3,4,18,14,1,1,3,4,11,4,4,20,16,11,7,4,19,15,13,14,11,14,1,13,4,19,16,4,11,7,16,1,9,4,16,3,12,16,4,16,19,19,19,4,5,20,13,17,11,20,9,15,3,4,4,4,1,20,7,4,17,4,9,19,13,19,15,4,19,1,14,4,15,7,4,21,4,1,4,6,4,4,16,15,16,7,7,1,3,15,19,16,4,4,4,16,14,16,1,4,13,20,4,12,12,12,19,1,1,4,15,16,16,7,15,15,4,16,4,3,7,20,15,4,4,16,16,4,9,4,21,4,4,3,16,4,3,19,1,15,3,16,20,16,16,1,10,4,4,4,19,19,9,4,16,13,3,4,4,16,4,4,19,7,16,4,4,16,16,19,4,14,7,13,7,19,16,3,16,19,16,1,17,1,1,4,16,7,1,16,15,14,21,16,4,16,16,4,7,7,16,7,1,20,16,13,20,4,4,1,4,15,4,16,7,14,17,4,4,4,19,3,4,4,16,13,19,19,19,4,16,19,4,19,4,4,19,16,4,16,1,17,9,20,19,16,14,15,4,13,15,1,4,2,13,12,7,19,4,15,2,16,4,16,14,4,19,17,11,4,4,16,9,4,13,4,16,16,9,4,19,16,4,16,4,4,1,7,4,16,13,1,16,18,16,18,6,7,17,1,19,6,20,4,3,4,16,4,7,16,1,13,20,9,4,4,7,16,4,3,1,16,1,4,1,4,16,4,19,4,4,4,16,16,16,1,4,9,16,16,4,13,20,13,15,16,17,1,13,7,16,20,4,4,13,11,19,4,13,20,4,19,19,7,4,4,13,19,20,20,4,4,4,7,7,6,9,4,17,4,7,1,4,4,4,4,13,12,4,4,1,4,19,7,4,9,19,4,7,18,11,4,1,16,19,17,3,16,7,4,13,9,9,19,13,9,4,4,7,13,1,18,16,4,1,7,4,11,16,19,1,4,4,15,1,4,4,4,16,11,4,19,4,4,4,14,1,7,4,4,4,4,13,3,4,7,19,12,7,19,19,20,16,13,9,16,7,4,4,16,7,4,19,16,12,1,7,19,4,4,1,16,1,19,4,4,9,4,4,16,13,20,4,20,4,4,15,3,16,4,19,4,1,9,4,15,19,4,20,4,4,6,1,4,13,3,16,16,4,16,4,16,16,18,20,3,4,15,4,14,12,16,12,4,1,19,19,19,14,19,4,1,1,9,16,12,16,19,4,19,3,12,4,1,7,4,14,4,4,16,4,13,4,4,16,19,4,9,19,4,1,16,4,7,4,4,13,4,16,13,16,4,4,20,20,7,4,4,12,4,3,16,11,4,16,4,20,4,15,12,4,16,13,20,1,16,1,12,12,16,17,16,15,1,16,4,19,11,4,16,4,13,4,16,13,19,16,1,19,4,16,16,16,16,4,7,16,4,4,4,15,18,19,14,18,20,13,4,1,4,13,5,4,4,4,4,4,16,16,7,4,16,4,9,16,4,4,16,19,4,16,16,6,7,4,20,19,16,5,9,4,1,19,16,19,16,15,16,4,4,19,1,12,13,16,16,4,4,16,16,14,4,7,16,4,4,3,4,16,13,3,16,1,7,1,16,15,9,12,19,4,4,14,19,4,1,7,19,4,1,4,14,4,4,4,19,4,4,1,7,15,18,19,4,4,3,19,19,16,4,4,20,12,4,20,12,3,3,4,7,4,3,19,13,4,17,4,11,4,13,7,4,14,1,7,8,9,1,14,4,4,20,7,4,16,17,16,4,4,4,13,12,7,14,19,16,4,11,15,16,4,4,16,7,13,6,4,4,16,7,4,1,4,4,4,4,9,4,1,16,14,14,4,19,16,4,19,1,4,16,7,1,8,19,12,15,14,1,7,19,4,4,12,16,7,19,13,16,1,9,16,4,19,1,4,21,7,16,4,4,18,19,1,7,7,4,16,4,4,16,4,4,20,17,19,4,6,11,1,7,16,9,7,15,16,4,4,9,3,16,7,4,1,16,4,16,20,4,13,19,8,19,4,4,4,9,1,16,13,16,4,4,16,16,19,4,14,9,4,1,4,7,15,16,4,1,19],"line":{"colorbar":{"title":"","ticklen":2},"cmin":1,"cmax":21,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[7,15,15,1,1,4,9,19,4,4,4,1,4,20,1,4,13,19,17,15,16,16,7,7,9,4,13,4,4,4,3,20,4,7,1,1,4,17,4,7,4,13,12,19,1,20,7,19,16,19,1,17,19,16,4,4,19,3,7,12,4,4,7,4,3,16,16,17,3,19,7,1,16,3,4,18,14,1,1,3,4,11,4,4,20,16,11,7,4,19,15,13,14,11,14,1,13,4,19,16,4,11,7,16,1,9,4,16,3,12,16,4,16,19,19,19,4,5,20,13,17,11,20,9,15,3,4,4,4,1,20,7,4,17,4,9,19,13,19,15,4,19,1,14,4,15,7,4,21,4,1,4,6,4,4,16,15,16,7,7,1,3,15,19,16,4,4,4,16,14,16,1,4,13,20,4,12,12,12,19,1,1,4,15,16,16,7,15,15,4,16,4,3,7,20,15,4,4,16,16,4,9,4,21,4,4,3,16,4,3,19,1,15,3,16,20,16,16,1,10,4,4,4,19,19,9,4,16,13,3,4,4,16,4,4,19,7,16,4,4,16,16,19,4,14,7,13,7,19,16,3,16,19,16,1,17,1,1,4,16,7,1,16,15,14,21,16,4,16,16,4,7,7,16,7,1,20,16,13,20,4,4,1,4,15,4,16,7,14,17,4,4,4,19,3,4,4,16,13,19,19,19,4,16,19,4,19,4,4,19,16,4,16,1,17,9,20,19,16,14,15,4,13,15,1,4,2,13,12,7,19,4,15,2,16,4,16,14,4,19,17,11,4,4,16,9,4,13,4,16,16,9,4,19,16,4,16,4,4,1,7,4,16,13,1,16,18,16,18,6,7,17,1,19,6,20,4,3,4,16,4,7,16,1,13,20,9,4,4,7,16,4,3,1,16,1,4,1,4,16,4,19,4,4,4,16,16,16,1,4,9,16,16,4,13,20,13,15,16,17,1,13,7,16,20,4,4,13,11,19,4,13,20,4,19,19,7,4,4,13,19,20,20,4,4,4,7,7,6,9,4,17,4,7,1,4,4,4,4,13,12,4,4,1,4,19,7,4,9,19,4,7,18,11,4,1,16,19,17,3,16,7,4,13,9,9,19,13,9,4,4,7,13,1,18,16,4,1,7,4,11,16,19,1,4,4,15,1,4,4,4,16,11,4,19,4,4,4,14,1,7,4,4,4,4,13,3,4,7,19,12,7,19,19,20,16,13,9,16,7,4,4,16,7,4,19,16,12,1,7,19,4,4,1,16,1,19,4,4,9,4,4,16,13,20,4,20,4,4,15,3,16,4,19,4,1,9,4,15,19,4,20,4,4,6,1,4,13,3,16,16,4,16,4,16,16,18,20,3,4,15,4,14,12,16,12,4,1,19,19,19,14,19,4,1,1,9,16,12,16,19,4,19,3,12,4,1,7,4,14,4,4,16,4,13,4,4,16,19,4,9,19,4,1,16,4,7,4,4,13,4,16,13,16,4,4,20,20,7,4,4,12,4,3,16,11,4,16,4,20,4,15,12,4,16,13,20,1,16,1,12,12,16,17,16,15,1,16,4,19,11,4,16,4,13,4,16,13,19,16,1,19,4,16,16,16,16,4,7,16,4,4,4,15,18,19,14,18,20,13,4,1,4,13,5,4,4,4,4,4,16,16,7,4,16,4,9,16,4,4,16,19,4,16,16,6,7,4,20,19,16,5,9,4,1,19,16,19,16,15,16,4,4,19,1,12,13,16,16,4,4,16,16,14,4,7,16,4,4,3,4,16,13,3,16,1,7,1,16,15,9,12,19,4,4,14,19,4,1,7,19,4,1,4,14,4,4,4,19,4,4,1,7,15,18,19,4,4,3,19,19,16,4,4,20,12,4,20,12,3,3,4,7,4,3,19,13,4,17,4,11,4,13,7,4,14,1,7,8,9,1,14,4,4,20,7,4,16,17,16,4,4,4,13,12,7,14,19,16,4,11,15,16,4,4,16,7,13,6,4,4,16,7,4,1,4,4,4,4,9,4,1,16,14,14,4,19,16,4,19,1,4,16,7,1,8,19,12,15,14,1,7,19,4,4,12,16,7,19,13,16,1,9,16,4,19,1,4,21,7,16,4,4,18,19,1,7,7,4,16,4,4,16,4,4,20,17,19,4,6,11,1,7,16,9,7,15,16,4,4,9,3,16,7,4,1,16,4,16,20,4,13,19,8,19,4,4,4,9,1,16,13,16,4,4,16,16,19,4,14,9,4,1,4,7,15,16,4,1,19]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,23],"y":[4,100],"type":"scatter","mode":"markers","opacity":0,"hoverinfo":"none","showlegend":false,"marker":{"colorbar":{"title":"department_id","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"cmin":1,"cmax":21,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"color":[1,21],"line":{"color":"rgba(255,127,14,1)"}},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="column-1" class="section level2" data-width="350">
+<h2>Column</h2>
+<div id="bar-chart-of-order-numbers-across-different-departments"
+class="section level3">
+<h3>Bar Chart of Order numbers across Different Departments</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-168f689962ad94e90cb1" style="width:576px;height:460.8px;"></div>
+<script type="application/json" data-for="htmlwidget-168f689962ad94e90cb1">{"x":{"visdat":{"41e07c99fc81":["function () ","plotlyVisDat"]},"cur_data":"41e07c99fc81","attrs":{"41e07c99fc81":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Department","type":"category","categoryorder":"array","categoryarray":["alcohol","babies","bakery","beverages","breakfast","canned goods","dairy eggs","deli","dry goods pasta","frozen","household","international","meat seafood","pantry","personal care","pets","produce","snacks"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"# of Orders"},"title":"Bar chart of # of Orders in each Department","hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["snacks","personal care","dairy eggs","dry goods pasta","breakfast","dairy eggs","canned goods","dairy eggs","dry goods pasta","beverages","produce","meat seafood","snacks","beverages","deli","dairy eggs","frozen","frozen","produce","snacks","international","pantry","deli","deli","dairy eggs","canned goods","snacks","pantry","dairy eggs","produce","produce","frozen","dairy eggs","produce","dairy eggs","dairy eggs","snacks","dairy eggs","bakery","household","produce","babies","produce","bakery","beverages","deli","beverages","beverages","beverages","household","frozen","international","produce","snacks","produce","produce","snacks","pantry","produce","dairy eggs","breakfast","produce","breakfast","canned goods","beverages","snacks","snacks","household","household","produce","deli","produce","produce","snacks","beverages","meat seafood","beverages","dairy eggs","produce","produce","produce","produce","canned goods","babies","beverages","beverages","beverages","frozen","meat seafood","produce","dairy eggs","dairy eggs","dairy eggs","dairy eggs","produce","dairy eggs","produce","deli","dairy eggs","snacks","produce","snacks","babies","snacks","produce","bakery","bakery","dry goods pasta","dry goods pasta","dairy eggs","dairy eggs","beverages","dairy eggs","deli","canned goods","pantry","produce","dairy eggs","bakery","snacks","dairy eggs","personal care","dairy eggs","produce","produce","produce","meat seafood","meat seafood","dairy eggs","snacks","beverages","pantry","bakery","personal care","produce","dairy eggs","dairy eggs","dairy eggs","dry goods pasta","dry goods pasta","babies","beverages","pantry","frozen","frozen","snacks","beverages","dairy eggs","dairy eggs","beverages","frozen","dairy eggs","beverages","pantry","frozen","produce","bakery","produce","produce","deli","dairy eggs","canned goods","produce","meat seafood","canned goods","dairy eggs","bakery","frozen","dairy eggs","meat seafood","dairy eggs","dairy eggs","snacks","produce","produce","bakery","produce","produce","breakfast","beverages","produce","dry goods pasta","bakery","snacks","snacks","beverages","beverages","canned goods","produce","personal care","alcohol","dairy eggs","snacks","canned goods","snacks","produce","bakery","produce","bakery","beverages","beverages","frozen","bakery","snacks","frozen","dry goods pasta","beverages","produce","produce","snacks","produce","produce","produce","alcohol","dairy eggs","pantry","meat seafood","beverages","beverages","produce","produce","dry goods pasta","snacks","beverages","household","frozen","pantry","pets","snacks","frozen","pantry","dairy eggs","bakery","pantry","frozen","produce","bakery","pantry","bakery","beverages","international","pantry","produce","produce","produce","dairy eggs","frozen","snacks","produce","produce","deli","dairy eggs","meat seafood","dairy eggs","dairy eggs","frozen","frozen","meat seafood","produce","beverages","breakfast","produce","produce","meat seafood","dairy eggs","canned goods","canned goods","produce","produce","produce","produce","produce","canned goods","canned goods","breakfast","deli","meat seafood","frozen","beverages","breakfast","dairy eggs","dairy eggs","household","produce","produce","household","deli","frozen","snacks","pantry","produce","canned goods","canned goods","meat seafood","produce","produce","snacks","dairy eggs","dairy eggs","bakery","pantry","dairy eggs","dairy eggs","produce","produce","produce","deli","dry goods pasta","frozen","produce","produce","snacks","snacks","dairy eggs","dairy eggs","breakfast","dairy eggs","household","pantry","produce","produce","snacks","produce","frozen","canned goods","dairy eggs","frozen","snacks","personal care","beverages","babies","household","dairy eggs","produce","deli","frozen","meat seafood","beverages","beverages","bakery","beverages","dairy eggs","beverages","frozen","beverages","dry goods pasta","beverages","produce","dry goods pasta","produce","beverages","pantry","canned goods","frozen","dry goods pasta","beverages","pantry","babies","deli","pantry","produce","dairy eggs","produce","produce","beverages","beverages","dairy eggs","dairy eggs","breakfast","dairy eggs","produce","pantry","frozen","pantry","produce","canned goods","pantry","bakery","produce","breakfast","produce","produce","bakery","snacks","dry goods pasta","dairy eggs","produce","produce","dairy eggs","dry goods pasta","household","canned goods","frozen","beverages","produce","dry goods pasta","produce","produce","frozen","pantry","dry goods pasta","dairy eggs","produce","dairy eggs","dairy eggs","frozen","produce","produce","produce","beverages","dry goods pasta","frozen","canned goods","pets","international","frozen","alcohol","produce","snacks","breakfast","produce","produce","pantry","dairy eggs","snacks","dairy eggs","produce","snacks","pantry","produce","frozen","dairy eggs","babies","meat seafood","beverages","beverages","produce","produce","bakery","produce","produce","produce","dairy eggs","household","produce","beverages","frozen","frozen","produce","beverages","snacks","pantry","snacks","dairy eggs","produce","snacks","breakfast","produce","dairy eggs","dairy eggs","dairy eggs","beverages","produce","international","produce","produce","produce","produce","produce","pantry","produce","produce","produce","produce","produce","produce","beverages","pantry","beverages","dairy eggs","snacks","snacks","produce","pantry","produce","produce","bakery","household","babies","personal care","frozen","beverages","deli","snacks","produce"],"y":[10,5,22,7,53,12,6,71,14,4,6,19,19,5,12,10,32,5,27,6,9,38,18,18,10,5,6,4,27,23,23,9,5,13,68,68,12,12,8,21,10,21,14,45,7,26,56,56,5,20,9,18,5,10,53,53,27,12,5,16,10,4,25,9,9,13,13,66,66,9,15,23,23,13,6,14,8,5,68,68,68,22,4,5,41,41,41,28,5,11,5,4,13,13,14,5,60,86,18,22,11,38,13,6,16,33,33,50,50,35,7,6,6,10,4,12,99,14,50,15,4,7,16,45,45,45,58,58,30,6,4,20,50,12,4,12,36,13,11,7,9,15,22,25,25,19,8,4,8,7,6,43,25,18,18,28,8,5,8,10,72,7,4,30,25,8,66,15,15,54,5,7,18,80,80,5,25,25,19,11,14,13,5,13,8,6,42,4,6,18,9,7,23,42,29,11,7,6,11,7,14,4,35,41,22,22,5,11,11,23,13,13,10,11,4,5,7,14,21,32,32,10,7,9,7,5,26,45,15,20,9,81,9,10,19,5,7,36,5,8,5,16,29,29,29,61,5,77,11,11,5,8,74,9,9,26,12,27,6,13,6,57,57,41,7,8,5,7,12,56,18,18,57,57,11,39,6,18,17,4,23,23,8,15,15,9,23,4,8,4,10,24,24,53,9,8,25,17,9,9,7,31,31,26,26,26,33,16,5,21,21,5,6,75,75,29,4,7,7,79,79,32,13,36,14,21,10,56,22,8,10,6,49,10,30,8,15,21,7,23,7,15,9,10,6,20,21,12,24,12,6,25,10,16,18,23,5,7,25,5,13,16,10,19,41,26,19,6,13,5,12,14,4,15,21,4,5,9,79,8,12,39,11,25,16,19,23,10,6,7,19,8,10,12,20,7,12,6,5,69,4,5,11,64,4,15,22,22,4,4,12,6,4,9,36,12,18,7,6,9,13,13,4,44,4,12,72,4,19,11,9,6,15,8,17,17,5,24,11,36,36,24,4,29,11,4,9,12,13,17,23,4,39,9,4,65,7,22,4,15,9,11,37,32,67,67,67,67,67,13,40,40,40,12,34,34,19,11,19,4,13,7,10,5,4,7,24,5,12,6,28,5,70,53,4],"type":"bar","marker":{"colorbar":{"title":"product_id","ticklen":2},"cmin":1,"cmax":49683,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[1,174,329,388,588,781,790,920,972,1017,1025,1117,1131,1194,1392,1463,1516,2050,2295,2480,2573,2799,2825,2825,2983,3376,3599,4132,4367,4605,4605,4697,4793,4796,4799,4799,4931,5038,5077,5181,5184,5206,5212,5422,5428,5456,5479,5479,5488,5533,5699,5817,5819,5853,5876,5876,6015,6174,6184,6193,6638,6873,6991,7461,7521,7736,7736,8021,8021,8048,8138,8193,8193,8212,8228,8379,8390,8490,8518,8518,8518,8571,8670,8799,8859,8859,8859,9065,9339,9387,9405,9477,9810,9810,9839,10125,10246,10369,10473,10509,10613,10753,10971,11173,11365,11461,11461,11481,11481,11520,11710,11773,11826,11888,12232,12409,12419,12745,12798,12845,12899,13055,13093,13176,13176,13176,13198,13198,13249,13350,13363,13431,13517,13658,13720,13802,14084,14147,14168,14197,14211,14326,14404,14678,14678,14858,14947,15285,15399,15424,15820,16083,16387,16571,16582,16797,17044,17122,17400,17429,17600,17634,17794,17878,17912,17949,17985,18102,18224,18232,18465,18594,18618,18656,18656,18987,19505,19505,19530,19660,19691,19760,19816,19821,20169,20282,20298,20520,20632,20642,20704,20842,20876,21010,21053,21137,21267,21288,21344,21380,21392,21436,21497,21572,21698,21707,21709,21872,21872,21873,21903,21903,21938,21948,22025,22034,22476,22556,22802,22935,22935,22952,22993,23178,23229,23230,23516,23544,23579,23586,23594,23804,23888,23995,24013,24135,24235,24382,24454,24549,24578,24768,24852,24852,24852,24914,24925,24952,24964,24964,25199,25265,25634,25659,25659,25753,25762,25890,25931,26165,26177,26209,26209,26324,26384,26759,26790,26800,26940,26985,27104,27104,27156,27156,27246,27344,27360,27362,27551,27681,27845,27845,27954,27966,27966,27992,28373,28572,28647,28785,28842,28849,28849,28986,29027,29662,29926,29987,29993,29996,30222,30233,30233,30391,30391,30391,30489,30620,30696,30827,30827,30958,31022,31343,31343,31433,31439,31449,31506,31553,31553,31651,31717,31883,32029,32134,32278,32398,32452,32623,32647,32650,32655,32689,32757,32971,33081,33178,33198,33351,33671,33754,33852,33873,33942,34013,34050,34126,34209,34358,34389,34407,34449,34466,35004,35221,35263,35461,35530,35908,35939,35951,36070,36082,36316,36406,36550,36865,36994,37029,37067,37096,37158,37220,37288,37409,37645,37734,37766,37776,37892,38028,38303,38480,38533,38689,38693,38768,38804,38835,38949,39019,39024,39124,39275,39619,39693,39877,40002,40261,40316,40332,40354,40571,40604,40621,40706,40706,40708,40765,40775,41005,41544,41582,41613,41653,41689,41787,41793,41890,42265,42265,42356,42562,42789,42828,43122,43160,43218,43352,43488,44368,44471,44566,44632,44632,44750,44910,45019,45066,45066,45200,45570,45698,45862,45878,46138,46175,46274,46402,46448,46473,46484,46595,46667,46692,46847,46906,46996,47087,47144,47152,47209,47434,47626,47626,47626,47626,47626,47714,47734,47734,47734,47759,47766,47766,47877,47946,47977,48104,48109,48164,48205,48239,48455,48657,48857,49072,49215,49271,49363,49520,49605,49665,49683],"line":{"colorbar":{"title":"","ticklen":2},"cmin":1,"cmax":49683,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[1,174,329,388,588,781,790,920,972,1017,1025,1117,1131,1194,1392,1463,1516,2050,2295,2480,2573,2799,2825,2825,2983,3376,3599,4132,4367,4605,4605,4697,4793,4796,4799,4799,4931,5038,5077,5181,5184,5206,5212,5422,5428,5456,5479,5479,5488,5533,5699,5817,5819,5853,5876,5876,6015,6174,6184,6193,6638,6873,6991,7461,7521,7736,7736,8021,8021,8048,8138,8193,8193,8212,8228,8379,8390,8490,8518,8518,8518,8571,8670,8799,8859,8859,8859,9065,9339,9387,9405,9477,9810,9810,9839,10125,10246,10369,10473,10509,10613,10753,10971,11173,11365,11461,11461,11481,11481,11520,11710,11773,11826,11888,12232,12409,12419,12745,12798,12845,12899,13055,13093,13176,13176,13176,13198,13198,13249,13350,13363,13431,13517,13658,13720,13802,14084,14147,14168,14197,14211,14326,14404,14678,14678,14858,14947,15285,15399,15424,15820,16083,16387,16571,16582,16797,17044,17122,17400,17429,17600,17634,17794,17878,17912,17949,17985,18102,18224,18232,18465,18594,18618,18656,18656,18987,19505,19505,19530,19660,19691,19760,19816,19821,20169,20282,20298,20520,20632,20642,20704,20842,20876,21010,21053,21137,21267,21288,21344,21380,21392,21436,21497,21572,21698,21707,21709,21872,21872,21873,21903,21903,21938,21948,22025,22034,22476,22556,22802,22935,22935,22952,22993,23178,23229,23230,23516,23544,23579,23586,23594,23804,23888,23995,24013,24135,24235,24382,24454,24549,24578,24768,24852,24852,24852,24914,24925,24952,24964,24964,25199,25265,25634,25659,25659,25753,25762,25890,25931,26165,26177,26209,26209,26324,26384,26759,26790,26800,26940,26985,27104,27104,27156,27156,27246,27344,27360,27362,27551,27681,27845,27845,27954,27966,27966,27992,28373,28572,28647,28785,28842,28849,28849,28986,29027,29662,29926,29987,29993,29996,30222,30233,30233,30391,30391,30391,30489,30620,30696,30827,30827,30958,31022,31343,31343,31433,31439,31449,31506,31553,31553,31651,31717,31883,32029,32134,32278,32398,32452,32623,32647,32650,32655,32689,32757,32971,33081,33178,33198,33351,33671,33754,33852,33873,33942,34013,34050,34126,34209,34358,34389,34407,34449,34466,35004,35221,35263,35461,35530,35908,35939,35951,36070,36082,36316,36406,36550,36865,36994,37029,37067,37096,37158,37220,37288,37409,37645,37734,37766,37776,37892,38028,38303,38480,38533,38689,38693,38768,38804,38835,38949,39019,39024,39124,39275,39619,39693,39877,40002,40261,40316,40332,40354,40571,40604,40621,40706,40706,40708,40765,40775,41005,41544,41582,41613,41653,41689,41787,41793,41890,42265,42265,42356,42562,42789,42828,43122,43160,43218,43352,43488,44368,44471,44566,44632,44632,44750,44910,45019,45066,45066,45200,45570,45698,45862,45878,46138,46175,46274,46402,46448,46473,46484,46595,46667,46692,46847,46906,46996,47087,47144,47152,47209,47434,47626,47626,47626,47626,47626,47714,47734,47734,47734,47759,47766,47766,47877,47946,47977,48104,48109,48164,48205,48239,48455,48657,48857,49072,49215,49271,49363,49520,49605,49665,49683]}},"xaxis":"x","yaxis":"y","frame":null},{"x":["alcohol","snacks"],"y":[4,99],"type":"scatter","mode":"markers","opacity":0,"hoverinfo":"none","showlegend":false,"marker":{"colorbar":{"title":"product_id","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"cmin":1,"cmax":49683,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"color":[1,49683],"line":{"color":"rgba(255,127,14,1)"}},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div
+id="box-plot-of-days-since-prior-orders-across-different-department"
+class="section level3">
+<h3>Box plot of Days Since Prior Orders across Different Department</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
+</div>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6e78d7c4d656aa564e57" style="width:576px;height:460.8px;"></div>
+<script type="application/json" data-for="htmlwidget-6e78d7c4d656aa564e57">{"x":{"visdat":{"41e06465b9d3":["function () ","plotlyVisDat"]},"cur_data":"41e06465b9d3","attrs":{"41e06465b9d3":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Department","type":"category","categoryorder":"array","categoryarray":["alcohol","babies","bakery","beverages","breakfast","bulk","canned goods","dairy eggs","deli","dry goods pasta","frozen","household","international","meat seafood","pantry","personal care","pets","produce","snacks"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"# of Days since last order"},"title":"Box Plot of # of Days since last order across Departments","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":["alcohol","alcohol","alcohol","alcohol","alcohol","alcohol","alcohol"],"y":[30,20,1,30,7,21,11],"type":"box","name":"alcohol","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(178,177,139,0.5)","x":["babies","babies","babies","babies","babies","babies","babies","babies"],"y":[4,25,30,30,5,30,30,30],"type":"box","name":"babies","marker":{"color":"rgba(178,177,139,1)","line":{"color":"rgba(178,177,139,1)"}},"line":{"color":"rgba(178,177,139,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(228,156,113,0.5)","x":["bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery"],"y":[30,7,1,28,20,13,2,30,30,5,11,19,30,5,5,21,7,4,3,30,30,30,10,30,30,30,22,13,0,30,16,7,14,30,9,12,19,30,26],"type":"box","name":"bakery","marker":{"color":"rgba(228,156,113,1)","line":{"color":"rgba(228,156,113,1)"}},"line":{"color":"rgba(228,156,113,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(238,145,116,0.5)","x":["beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages"],"y":[9,30,7,30,6,16,6,14,30,14,17,29,21,8,30,11,1,10,30,11,30,11,11,30,14,30,1,30,30,19,24,7,14,7,8,8,3,7,30,7,30,23,20,20,1,14,30,28,7,30,5,15,12,25,30,30,9,25,20,21,14,9,17,5,15,30,23,0,22,8,16,30,6,9,14,17,7,30,25],"type":"box","name":"beverages","marker":{"color":"rgba(238,145,116,1)","line":{"color":"rgba(238,145,116,1)"}},"line":{"color":"rgba(238,145,116,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(201,152,157,0.5)","x":["breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast"],"y":[10,30,13,17,17,30,0,23,30,30,14,7,20,30,30],"type":"box","name":"breakfast","marker":{"color":"rgba(201,152,157,1)","line":{"color":"rgba(201,152,157,1)"}},"line":{"color":"rgba(201,152,157,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(150,159,197,0.5)","x":["bulk","bulk"],"y":[29,4],"type":"box","name":"bulk","marker":{"color":"rgba(150,159,197,1)","line":{"color":"rgba(150,159,197,1)"}},"line":{"color":"rgba(150,159,197,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(175,154,200,0.5)","x":["canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods"],"y":[1,1,8,4,8,13,20,17,6,13,28,16,13,8,30,29,21,30,30,30,21,6,27,8,14,16,4,30,8,19,15,6,6,23,30,14,4,4,4,18,7,30,30,23,28,12,15,14,30,3,6],"type":"box","name":"canned goods","marker":{"color":"rgba(175,154,200,1)","line":{"color":"rgba(175,154,200,1)"}},"line":{"color":"rgba(175,154,200,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(209,146,197,0.5)","x":["dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs"],"y":[19,30,13,9,19,30,19,20,30,30,17,3,25,30,22,8,30,9,8,10,8,6,12,12,14,30,2,8,20,5,29,30,8,30,30,5,5,14,30,7,7,28,2,23,23,11,5,4,6,30,5,7,30,23,24,30,23,30,30,16,26,6,30,8,7,3,27,10,8,16,24,4,30,30,8,19,30,22,30,30,13,13,11,30,7,30,7,14,30,24,2,3,26,13,14,30,7,14,20,25,4,30,23,6,7,7,20,6,22,30,6,7,30,20,24,14,21,9,9,30,4,7,30,30,6,30,8,0,12,30,30,5,15,30,30,30,14,7,6,12,8,30,21,7,30,30,30,30,30,11,11,30,20,30,21,29,7,8,30],"type":"box","name":"dairy eggs","marker":{"color":"rgba(209,146,197,1)","line":{"color":"rgba(209,146,197,1)"}},"line":{"color":"rgba(209,146,197,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(226,148,184,0.5)","x":["deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli"],"y":[5,9,13,26,8,7,23,30,4,17,28,7,30,30,6,30,30,15,7,7,21,30,20,30,16,19,6,12,11,29,30,30,30,7,4,7,30,15,30],"type":"box","name":"deli","marker":{"color":"rgba(226,148,184,1)","line":{"color":"rgba(226,148,184,1)"}},"line":{"color":"rgba(226,148,184,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(205,180,144,0.5)","x":["dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta"],"y":[11,7,23,13,30,30,30,21,2,30,5,25,30,7,5,10,22,1,30,4,27,30,3,30,7,30,4,3,14,10,17],"type":"box","name":"dry goods pasta","marker":{"color":"rgba(205,180,144,1)","line":{"color":"rgba(205,180,144,1)"}},"line":{"color":"rgba(205,180,144,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(176,208,99,0.5)","x":["frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen"],"y":[27,6,30,4,10,4,7,13,22,11,30,7,30,2,7,30,18,7,30,30,3,18,7,7,15,30,30,2,30,30,14,30,30,4,3,30,5,29,22,20,7,30,5,29,3,5,7,30,11,30,1,30,13,6,30,30,30,14,14,22,20,30,5,8,20,30,30,30,10,7,30,30,10,5,30,30,14,30,30,1,30,8,14],"type":"box","name":"frozen","marker":{"color":"rgba(176,208,99,1)","line":{"color":"rgba(176,208,99,1)"}},"line":{"color":"rgba(176,208,99,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(193,217,75,0.5)","x":["household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household"],"y":[8,9,10,11,8,30,10,30,4,2,30,30,7,14,13,30,26,8,26,19,7,18,30,18,11,2,9],"type":"box","name":"household","marker":{"color":"rgba(193,217,75,1)","line":{"color":"rgba(193,217,75,1)"}},"line":{"color":"rgba(193,217,75,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(227,217,62,0.5)","x":["international","international","international","international","international"],"y":[12,22,30,30,30],"type":"box","name":"international","marker":{"color":"rgba(227,217,62,1)","line":{"color":"rgba(227,217,62,1)"}},"line":{"color":"rgba(227,217,62,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(254,216,56,0.5)","x":["meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood"],"y":[25,12,5,19,3,6,4,30,2,13,30,11,10,19,5,7,30,7,29,15,30,19],"type":"box","name":"meat seafood","marker":{"color":"rgba(254,216,56,1)","line":{"color":"rgba(254,216,56,1)"}},"line":{"color":"rgba(254,216,56,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(245,207,100,0.5)","x":["pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry"],"y":[30,30,30,4,14,30,30,29,5,13,22,11,19,1,21,8,20,18,5,0,9,6,10,30,21,16,30,8,30,17,23,7,22,28,30,12,7,9,26,17,30,20,3,11,6,10,2,28,8,26,7,20],"type":"box","name":"pantry","marker":{"color":"rgba(245,207,100,1)","line":{"color":"rgba(245,207,100,1)"}},"line":{"color":"rgba(245,207,100,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(234,199,134,0.5)","x":["personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care"],"y":[20,30,11,10,3,30,30,6,4,30,12,30,30],"type":"box","name":"personal care","marker":{"color":"rgba(234,199,134,1)","line":{"color":"rgba(234,199,134,1)"}},"line":{"color":"rgba(234,199,134,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(219,192,155,0.5)","x":["pets"],"y":[8],"type":"box","name":"pets","marker":{"color":"rgba(219,192,155,1)","line":{"color":"rgba(219,192,155,1)"}},"line":{"color":"rgba(219,192,155,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(200,186,167,0.5)","x":["produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce"],"y":[30,18,8,9,30,5,28,2,30,30,7,15,30,13,30,10,14,8,9,4,30,30,30,7,30,28,30,23,19,30,30,30,6,7,30,11,30,13,26,7,30,23,21,26,4,6,4,10,30,30,9,21,5,9,30,3,30,30,13,30,30,7,11,0,30,14,25,10,23,30,17,30,30,16,30,30,3,4,30,9,7,30,30,30,3,12,30,7,12,22,19,16,7,6,27,7,29,30,0,6,5,14,30,7,7,30,27,30,14,30,3,30,30,30,9,6,6,10,14,15,6,30,4,30,5,30,30,30,15,4,13,15,18,8,7,6,7,30,16,30,4,30,3,30,8,6,20,25,28,9,7,11,10,0,20,6,3,16,30,10,2,14,12,30,30,8,15,5,6,30,8,11,26,13,7,7,22,30,8,30,2,25,11,30,30,7,10,30,11,20,4,30,14,6,6,13,30,17,27,3,18,16,30,7,30,6,6,13,14,24,30,8,30,30,4,7,7,15,15,27,30,30,30,6,7,30,30,9,14,30,1,30,29,3,14,30,1,30,7,7,28,4,30,4,8,27,30,21,14,7,2,9,30,7,3,6,7,30,30,6,30,30,30,10,7,7,7,7,10,6,29,30,7,6,30,30,7,7,30,30,6,20,3,6,30,9,30],"type":"box","name":"produce","marker":{"color":"rgba(200,186,167,1)","line":{"color":"rgba(200,186,167,1)"}},"line":{"color":"rgba(200,186,167,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(179,179,179,0.5)","x":["snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks"],"y":[30,16,7,30,30,21,19,10,30,30,19,30,30,16,30,30,30,7,6,30,17,0,15,14,6,30,27,9,29,13,11,6,30,30,30,2,24,30,11,30,18,30,7,30,30,7,3,16,20,6,30,5,21,30,24,7,15,30,8,2,30,30,30,30,12,30,16,17,7,28,30,15,6,2,13,8,9,5],"type":"box","name":"snacks","marker":{"color":"rgba(179,179,179,1)","line":{"color":"rgba(179,179,179,1)"}},"line":{"color":"rgba(179,179,179,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function() {
+  // add bootstrap table styles to pandoc tables
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed table-sm');
+
+  // initialize mathjax
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  document.getElementsByTagName("head")[0].appendChild(script);
+
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+  FlexDashboard.init({
+    fillPage: true,
+    orientation: "columns",
+    storyboard: false,
+    defaultFigWidth: 576,
+    defaultFigHeight: 460,
+    defaultFigWidthMobile: 360,
+    defaultFigHeightMobile: 460,
+    resize_reload: true
+  });
+  var navbar = $(".navbar").first();
+  var body = $("body").first();
+  var sidebar = $(".section.sidebar").first();
+  function addNavbarPadding() {
+    var navHeight = navbar.outerHeight();
+    body.css("padding-top", (navHeight + 8) + "px");
+    sidebar.css("top", navHeight + "px");
+    var resizeEvent = window.document.createEvent("UIEvents");
+    resizeEvent.initUIEvent("resize", true, false, window, 0);
+    window.dispatchEvent(resizeEvent);
+  }
+  if (!window.Shiny) setTimeout(addNavbarPadding, 100);
+  $(document).on("shiny:idle", function() {
+    setTimeout(addNavbarPadding, 50);
+  });
+});
+</script>
+
+</body>
+</html>

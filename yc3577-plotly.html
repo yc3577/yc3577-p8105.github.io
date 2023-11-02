@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>yc3577-plotly</title>
+
+<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.3/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="Resume.html"></a>
+</li>
+<li>
+  <a href="yc3577-plotly.html">Plotly</a>
+</li>
+<li>
+  <a href="flexdashboard.html">Flexdashboard</a>
+</li>
+<li>
+  <a href="mailto:&lt;yc3577@columbia.edu&gt;">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://github.com/yc3577">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/ccchristinecai/">
+    <span class="fa fa-brands fa-linkedin"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.instagram.com/christine.cai.9085/">
+    <span class="fa fa-brands fa-instagram"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.facebook.com/christine.cai.9085/">
+    <span class="fa fa-brands fa-facebook"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">yc3577-plotly</h1>
+
+</div>
+
+
+<div id="were-gonna-look-at-instacart-data." class="section level1">
+<h1>We’re gonna look at Instacart data.</h1>
+<pre class="r"><code>library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)</code></pre>
+<div id="scatter-plot" class="section level2">
+<h2>Scatter Plot</h2>
+<pre class="r"><code>data(instacart)
+instacart_scatter = 
+  instacart |&gt;
+  drop_na() |&gt;
+  sample_n(1000) |&gt;
+  group_by(department_id) |&gt;
+  filter(!order_id == &#39;na&#39;) |&gt;
+  plot_ly(
+    x = ~order_hour_of_day,
+    y = ~order_number,
+    type = &#39;scatter&#39;,
+    color = ~department_id
+  ) |&gt;
+  layout(
+    xaxis = list(title=&#39;Hours during a Day&#39;),
+    yaxis = list(title=&#39;# of Orders&#39;),
+    title = &#39;Scatter plot of # of Orders in each hour of a Day&#39;
+  )
+  
+instacart_scatter</code></pre>
+<pre><code>## No scatter mode specifed:
+##   Setting the mode to markers
+##   Read more about this attribute -&gt; https://plotly.com/r/reference/#scatter-mode</code></pre>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c47e607b3d852768b476" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-c47e607b3d852768b476">{"x":{"visdat":{"41e045e4797":["function () ","plotlyVisDat"]},"cur_data":"41e045e4797","attrs":{"41e045e4797":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Hours during a Day"},"yaxis":{"domain":[0,1],"automargin":true,"title":"# of Orders"},"title":"Scatter plot of # of Orders in each hour of a Day","hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[12,8,10,11,14,15,9,21,15,18,9,16,7,11,9,15,0,18,10,14,15,15,9,19,16,13,9,19,22,14,1,14,10,12,18,17,11,14,2,11,10,8,14,13,9,15,13,9,21,14,19,15,8,15,19,18,7,14,16,16,6,8,17,23,18,10,19,11,10,11,10,9,19,20,11,14,17,15,15,15,15,12,13,10,13,11,12,8,22,19,8,11,9,9,15,15,12,3,14,10,11,8,15,7,11,10,17,8,12,16,20,18,16,20,7,17,10,4,11,22,21,11,18,9,13,13,10,20,15,8,13,19,11,9,12,16,23,21,14,10,8,14,13,20,15,11,9,13,15,18,14,11,12,14,11,15,16,17,13,12,12,13,12,11,18,12,11,15,7,16,14,10,12,13,11,10,17,17,13,7,13,17,13,13,23,20,15,13,13,10,12,12,19,14,12,11,13,7,12,15,12,10,9,13,21,13,8,19,16,18,18,13,22,11,8,14,19,12,10,11,10,14,11,0,9,15,11,19,0,17,21,17,18,8,11,18,18,14,16,14,13,10,17,17,10,13,22,10,11,9,14,16,9,11,16,12,10,15,14,10,11,16,16,18,9,7,12,16,16,19,23,18,13,10,11,20,17,8,15,10,21,0,10,9,9,10,11,23,11,12,20,7,17,0,11,14,14,14,15,21,21,17,14,10,0,16,16,12,12,9,8,21,20,15,13,15,10,13,10,10,18,13,15,20,6,7,10,8,16,6,9,21,15,10,17,16,6,14,8,7,22,10,10,21,11,9,14,15,11,11,14,15,14,14,15,15,19,16,7,14,17,9,16,9,19,12,8,10,16,11,15,17,19,18,13,9,11,7,2,8,15,11,23,10,21,14,17,10,8,15,17,16,14,12,20,10,13,14,14,19,13,16,15,13,15,18,12,12,14,13,12,20,13,18,16,21,20,14,14,15,15,19,19,10,20,19,18,20,11,11,9,13,4,16,19,13,16,18,15,9,6,15,16,9,15,10,8,16,16,18,9,18,15,0,9,0,16,12,12,11,15,13,14,13,17,7,23,8,14,9,13,13,2,9,14,14,17,20,17,15,17,21,12,13,7,16,16,15,11,9,17,17,14,6,21,13,9,14,10,8,13,10,12,12,16,17,17,12,11,17,11,21,21,21,14,14,17,10,22,13,7,15,17,11,16,15,9,22,12,6,18,11,2,19,12,17,6,16,15,16,13,11,12,6,7,13,13,10,14,22,10,16,12,14,11,15,20,20,17,9,16,16,23,18,16,7,14,12,7,13,9,7,23,11,17,12,17,15,13,11,8,16,17,12,6,22,10,13,15,16,11,9,11,10,15,17,9,14,19,2,10,14,13,14,10,15,14,11,13,8,10,21,15,7,5,14,17,11,17,21,17,12,18,11,11,17,16,12,20,0,8,9,12,15,7,15,7,16,12,20,11,13,9,11,10,6,15,15,13,11,9,21,13,12,11,12,16,9,17,23,10,18,15,17,12,14,9,11,18,9,9,9,13,10,18,15,16,21,13,11,22,3,10,20,11,11,17,9,9,12,10,8,14,8,14,14,19,13,16,13,14,12,15,10,15,17,16,6,12,15,10,17,11,12,17,18,21,11,15,13,11,18,15,14,13,14,21,11,18,16,16,10,14,16,13,10,15,13,13,7,14,8,23,9,17,7,21,14,10,11,16,16,14,9,13,10,12,11,9,19,15,21,9,1,13,22,17,11,14,8,15,10,14,16,15,15,10,14,12,19,0,11,16,15,12,15,15,13,16,13,12,11,15,14,2,19,7,17,17,16,10,19,12,17,12,17,18,15,16,13,16,15,22,15,22,11,13,14,18,17,14,12,10,12,22,8,16,16,20,11,20,12,15,17,11,16,13,11,20,16,17,12,7,13,13,19,20,12,20,12,17,22,13,14,13,18,11,18,21,12,11,16,16,17,10,19,9,7,12,20,13,8,9,9,15,9,22,10,12,17,11,13,12,17,14,19,10,12,12,13,9,13,15,9,16,19,22,13,17,7,8,14,14,9,15,8,12,13,13,11,12,12,4,9,19,12,19,19,19,15,9,10,17,11,15,20,12,15,15,15,1,15,17,18,15,16,13,14,11,18,12,14,16,10,14,17,15,19,19,15,22,9,18,7,2,14,14,15,16,12,15,13,17,13,11,22,11,19,16,9,14,5,21,18,11,21,18,16,11,19,15,15,9,11,16,14,16,12,9,9,22,9,11,14,17,17,16,13,13,14],"y":[10,13,4,16,73,11,20,12,38,4,54,41,15,41,100,11,12,71,9,12,9,34,4,18,10,45,7,10,36,11,33,5,6,22,10,4,42,49,13,6,7,13,42,9,26,10,10,10,12,4,15,4,17,27,19,35,7,5,11,75,8,43,25,15,7,5,4,5,8,10,14,73,4,7,41,6,15,5,20,8,4,18,9,12,56,44,12,6,13,26,17,54,5,11,11,10,11,21,9,8,15,47,71,13,12,14,7,5,12,34,19,7,43,8,26,20,4,22,16,9,22,26,4,14,7,10,22,9,6,10,25,9,5,47,37,11,7,35,21,8,4,6,15,4,34,17,20,5,7,4,56,100,24,12,7,12,16,5,10,4,18,9,36,6,10,4,15,7,7,33,7,37,5,32,6,13,33,6,16,8,5,6,18,41,5,7,4,4,4,10,31,4,5,18,15,9,7,43,6,7,4,22,19,18,14,5,7,7,52,12,6,4,9,60,27,9,40,6,6,18,22,8,6,22,9,5,23,9,52,15,26,12,75,8,35,9,4,10,21,9,30,29,25,6,12,9,14,9,8,4,15,5,15,4,12,7,11,20,10,22,4,16,58,36,18,4,15,17,5,34,12,9,6,6,7,8,45,5,51,14,9,42,4,46,5,30,10,27,4,20,41,10,62,9,28,49,9,4,12,89,8,4,53,85,4,4,6,15,11,26,4,42,7,22,5,29,6,4,7,34,5,24,7,5,7,5,29,12,7,27,13,22,33,5,5,14,34,4,16,7,9,100,12,83,12,6,8,4,30,13,9,9,38,16,17,4,4,16,7,11,7,6,19,15,4,8,7,7,17,35,7,6,18,21,6,6,12,5,6,55,7,7,10,32,7,14,7,38,16,52,11,13,8,37,34,5,5,4,5,4,10,5,15,6,6,10,10,7,14,19,8,5,4,31,4,4,17,21,4,9,9,5,10,5,10,14,13,11,5,6,7,19,7,4,39,12,10,59,42,8,14,6,10,6,22,27,6,8,29,25,43,4,4,7,14,6,8,13,4,5,20,5,6,4,9,26,8,4,5,9,5,25,9,13,34,21,21,4,5,4,15,32,22,4,5,14,4,17,16,22,16,47,6,42,7,7,40,25,10,6,5,29,11,10,5,11,4,5,40,6,23,34,22,22,5,11,5,25,7,11,5,6,44,8,11,52,11,12,25,5,33,55,6,31,17,9,53,8,5,6,27,4,4,9,36,20,5,5,9,6,9,4,5,20,11,40,43,16,52,5,7,14,20,28,15,4,11,13,27,23,7,14,15,26,16,25,6,41,34,7,100,9,73,9,40,21,6,9,33,17,29,12,5,20,52,9,27,7,4,23,28,24,14,9,7,11,44,9,50,12,70,31,45,6,39,26,5,8,14,15,23,17,7,5,7,36,12,4,7,4,100,6,6,4,33,37,26,18,35,16,42,4,20,8,12,11,13,32,13,12,19,15,24,13,7,12,21,35,13,4,7,16,8,6,11,7,18,21,5,18,22,27,4,5,4,7,10,9,15,5,4,8,14,12,8,20,5,6,14,8,30,6,8,4,10,6,7,7,27,23,22,7,8,42,5,23,7,28,30,6,7,19,48,7,5,60,23,11,5,20,52,16,11,4,7,23,6,4,5,34,5,13,8,11,6,6,14,12,21,4,11,17,48,11,4,5,10,11,9,4,14,5,7,16,7,21,21,22,24,35,19,23,22,7,28,53,18,8,4,10,10,5,9,9,13,7,7,6,5,8,13,13,9,9,20,11,30,42,6,48,9,8,6,16,14,55,6,8,34,8,4,23,36,10,10,5,5,4,34,16,6,10,37,10,89,9,11,54,12,23,6,5,16,11,17,28,20,27,20,44,11,4,4,7,20,16,6,11,6,9,26,17,13,21,11,42,17,20,60,4,9,8,4,4,9,5,12,4,13,4,86,6,6,5,50,8,11,26,6,100,5,14,10,12,13,5,21,43,9,20,100,20,4,29,15,10,17,4,6,18,25,18,7,4,16,5,5,32,43,11,14,4,42,5,4,47,5,7,26,84,17,15,14,8,14,5,12,4,25,7,15,5,9,22,22,6,12,10,6,4,13,6,31,25,4,4,4,21,9,5,31,4,34,20,47,12,5,4,22,9,20,17,9,13,4,10,42,35,8,4,21,6,8,54,10,14,82,13,6,18,52,83,6,5,32,30,49,14,12,47,8,5,13,11,13,6,5,47,24,11,7,32,8,4,5,10,7,25,4,21],"type":"scatter","mode":"markers","marker":{"colorbar":{"title":"department_id","ticklen":2},"cmin":1,"cmax":21,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[4,9,4,4,16,16,16,4,4,19,4,4,19,6,4,20,16,14,12,13,19,16,1,1,16,4,19,16,1,16,4,16,9,6,18,4,4,16,16,15,14,4,7,16,19,19,16,13,16,19,4,16,4,9,16,1,9,16,4,9,20,16,1,4,16,16,20,7,4,4,4,4,9,4,14,17,16,7,1,1,4,4,1,17,4,4,16,9,13,4,16,16,4,4,4,13,1,16,4,16,17,4,9,20,16,4,19,19,15,4,7,16,13,16,4,4,17,4,4,4,1,16,3,16,1,15,7,16,7,12,20,6,14,16,4,4,13,4,16,16,7,16,8,4,4,4,17,12,16,4,13,19,4,14,16,4,16,15,4,4,4,1,13,4,7,14,19,16,19,16,4,16,7,7,7,7,4,4,4,17,17,19,11,12,4,1,5,6,9,4,14,11,4,4,4,4,16,4,19,16,3,4,4,12,16,16,4,1,16,13,13,16,14,13,4,4,4,4,7,4,20,4,13,1,19,19,16,4,19,1,16,20,8,17,16,1,8,1,16,4,4,4,4,4,4,7,20,4,16,4,4,13,4,13,19,16,19,19,19,16,4,12,16,16,14,6,16,4,4,4,4,20,4,7,6,16,4,15,16,14,12,20,15,20,17,9,4,16,4,16,4,13,19,13,16,20,19,4,4,18,2,7,19,4,3,9,9,4,17,16,7,19,16,4,19,4,19,19,14,1,16,4,7,16,4,3,1,16,16,13,4,15,4,19,16,7,4,4,7,9,16,16,15,3,17,4,15,7,4,14,15,4,7,13,16,4,1,7,12,4,4,15,20,4,16,13,4,4,1,3,1,17,12,4,16,7,4,1,9,4,4,9,19,4,9,6,19,1,4,4,4,14,4,19,13,7,19,18,17,13,5,1,4,15,4,4,1,4,4,14,4,7,4,8,16,14,19,7,4,16,1,16,20,16,1,6,4,16,7,15,19,4,9,1,15,4,4,4,12,4,4,1,4,11,15,4,9,7,1,4,14,4,5,1,4,4,14,11,16,13,19,4,18,16,16,7,19,14,16,4,4,3,17,1,19,4,13,16,1,16,6,16,15,12,16,11,4,4,4,16,16,16,16,21,4,4,1,16,1,13,1,4,4,4,4,16,12,7,16,1,13,13,16,4,4,16,13,1,4,4,13,19,19,19,4,17,21,1,17,4,4,14,4,19,4,4,4,16,15,15,14,1,3,13,1,9,4,4,4,15,4,1,9,1,4,12,4,4,19,7,4,19,16,16,16,7,7,19,4,9,16,4,16,16,1,4,18,4,3,4,4,4,4,16,13,4,16,16,3,3,9,17,4,4,4,4,4,19,16,13,4,4,20,9,4,4,16,12,1,1,15,19,4,13,4,14,1,4,3,4,1,19,16,4,4,4,4,4,4,1,9,4,17,4,11,13,13,16,19,4,20,4,19,19,16,16,1,1,4,19,7,4,16,4,15,4,15,7,9,19,7,4,19,4,4,4,7,4,4,16,15,3,3,1,15,7,13,20,4,13,14,16,1,4,4,18,4,3,4,14,4,4,13,4,1,4,13,16,4,3,4,7,4,4,16,16,16,20,4,18,19,19,13,4,4,13,11,5,4,3,16,1,4,19,4,7,20,1,16,1,4,7,4,7,1,16,4,13,4,16,19,7,4,4,4,4,18,4,13,18,16,4,7,11,7,19,20,15,20,7,4,4,1,16,1,21,4,17,4,15,1,15,14,7,13,16,4,1,16,4,16,7,16,1,4,20,15,16,14,16,7,16,4,16,9,4,9,16,4,19,7,16,19,13,16,4,1,4,7,13,1,4,4,4,4,4,16,6,19,19,4,4,1,14,4,19,4,19,19,1,4,4,13,4,12,8,19,12,7,4,4,13,4,4,13,14,4,4,12,15,12,3,16,4,4,13,3,16,17,19,14,4,18,13,4,16,16,16,4,4,16,16,4,17,21,3,12,4,4,1,16,3,16,4,19,19,19,4,7,19,4,4,3,11,4,7,3,16,4,16,7,1,16,19,5,13,14,4,20,16,19,14,4,16,4,4,4,16,1,4,19,17,16,4,13,4,18,13,20,4,4,19,4,1,12,13,13,6,4,16,3,4,11,16,4,4,4,13,7,7,4,19,9,16,4,9,1,20,1,7,21,1,19,20,4,19,4,4,1,16,4,18,19,17,4,14,7,16,4,4,7,7,4,4,4,15,19,2,18,16,21,7,19,16,1,19,4,3,7,4],"line":{"colorbar":{"title":"","ticklen":2},"cmin":1,"cmax":21,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[4,9,4,4,16,16,16,4,4,19,4,4,19,6,4,20,16,14,12,13,19,16,1,1,16,4,19,16,1,16,4,16,9,6,18,4,4,16,16,15,14,4,7,16,19,19,16,13,16,19,4,16,4,9,16,1,9,16,4,9,20,16,1,4,16,16,20,7,4,4,4,4,9,4,14,17,16,7,1,1,4,4,1,17,4,4,16,9,13,4,16,16,4,4,4,13,1,16,4,16,17,4,9,20,16,4,19,19,15,4,7,16,13,16,4,4,17,4,4,4,1,16,3,16,1,15,7,16,7,12,20,6,14,16,4,4,13,4,16,16,7,16,8,4,4,4,17,12,16,4,13,19,4,14,16,4,16,15,4,4,4,1,13,4,7,14,19,16,19,16,4,16,7,7,7,7,4,4,4,17,17,19,11,12,4,1,5,6,9,4,14,11,4,4,4,4,16,4,19,16,3,4,4,12,16,16,4,1,16,13,13,16,14,13,4,4,4,4,7,4,20,4,13,1,19,19,16,4,19,1,16,20,8,17,16,1,8,1,16,4,4,4,4,4,4,7,20,4,16,4,4,13,4,13,19,16,19,19,19,16,4,12,16,16,14,6,16,4,4,4,4,20,4,7,6,16,4,15,16,14,12,20,15,20,17,9,4,16,4,16,4,13,19,13,16,20,19,4,4,18,2,7,19,4,3,9,9,4,17,16,7,19,16,4,19,4,19,19,14,1,16,4,7,16,4,3,1,16,16,13,4,15,4,19,16,7,4,4,7,9,16,16,15,3,17,4,15,7,4,14,15,4,7,13,16,4,1,7,12,4,4,15,20,4,16,13,4,4,1,3,1,17,12,4,16,7,4,1,9,4,4,9,19,4,9,6,19,1,4,4,4,14,4,19,13,7,19,18,17,13,5,1,4,15,4,4,1,4,4,14,4,7,4,8,16,14,19,7,4,16,1,16,20,16,1,6,4,16,7,15,19,4,9,1,15,4,4,4,12,4,4,1,4,11,15,4,9,7,1,4,14,4,5,1,4,4,14,11,16,13,19,4,18,16,16,7,19,14,16,4,4,3,17,1,19,4,13,16,1,16,6,16,15,12,16,11,4,4,4,16,16,16,16,21,4,4,1,16,1,13,1,4,4,4,4,16,12,7,16,1,13,13,16,4,4,16,13,1,4,4,13,19,19,19,4,17,21,1,17,4,4,14,4,19,4,4,4,16,15,15,14,1,3,13,1,9,4,4,4,15,4,1,9,1,4,12,4,4,19,7,4,19,16,16,16,7,7,19,4,9,16,4,16,16,1,4,18,4,3,4,4,4,4,16,13,4,16,16,3,3,9,17,4,4,4,4,4,19,16,13,4,4,20,9,4,4,16,12,1,1,15,19,4,13,4,14,1,4,3,4,1,19,16,4,4,4,4,4,4,1,9,4,17,4,11,13,13,16,19,4,20,4,19,19,16,16,1,1,4,19,7,4,16,4,15,4,15,7,9,19,7,4,19,4,4,4,7,4,4,16,15,3,3,1,15,7,13,20,4,13,14,16,1,4,4,18,4,3,4,14,4,4,13,4,1,4,13,16,4,3,4,7,4,4,16,16,16,20,4,18,19,19,13,4,4,13,11,5,4,3,16,1,4,19,4,7,20,1,16,1,4,7,4,7,1,16,4,13,4,16,19,7,4,4,4,4,18,4,13,18,16,4,7,11,7,19,20,15,20,7,4,4,1,16,1,21,4,17,4,15,1,15,14,7,13,16,4,1,16,4,16,7,16,1,4,20,15,16,14,16,7,16,4,16,9,4,9,16,4,19,7,16,19,13,16,4,1,4,7,13,1,4,4,4,4,4,16,6,19,19,4,4,1,14,4,19,4,19,19,1,4,4,13,4,12,8,19,12,7,4,4,13,4,4,13,14,4,4,12,15,12,3,16,4,4,13,3,16,17,19,14,4,18,13,4,16,16,16,4,4,16,16,4,17,21,3,12,4,4,1,16,3,16,4,19,19,19,4,7,19,4,4,3,11,4,7,3,16,4,16,7,1,16,19,5,13,14,4,20,16,19,14,4,16,4,4,4,16,1,4,19,17,16,4,13,4,18,13,20,4,4,19,4,1,12,13,13,6,4,16,3,4,11,16,4,4,4,13,7,7,4,19,9,16,4,9,1,20,1,7,21,1,19,20,4,19,4,4,1,16,4,18,19,17,4,14,7,16,4,4,7,7,4,4,4,15,19,2,18,16,21,7,19,16,1,19,4,3,7,4]}},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,23],"y":[4,100],"type":"scatter","mode":"markers","opacity":0,"hoverinfo":"none","showlegend":false,"marker":{"colorbar":{"title":"department_id","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"cmin":1,"cmax":21,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"color":[1,21],"line":{"color":"rgba(255,127,14,1)"}},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="bar-plot" class="section level2">
+<h2>Bar Plot</h2>
+<pre class="r"><code>instacart_bar = 
+  instacart |&gt;
+  drop_na() |&gt;
+  sample_n(500) |&gt;
+  filter( !department == &#39;missing&#39; &amp; !department == &#39;other&#39;) |&gt;
+  group_by(product_id) |&gt;
+  summarise(order_num = sum(order_number), department = department) |&gt;
+  plot_ly(
+    x = ~department,
+    y = ~order_num,
+    type = &#39;bar&#39;,
+    color = ~product_id
+  ) |&gt;
+  layout(
+    xaxis = list(title=&#39;Department&#39;),
+    yaxis = list(title=&#39;# of Orders&#39;),
+    title = &#39;Bar chart of # of Orders in each Department&#39;
+  )</code></pre>
+<pre><code>## Warning: Returning more (or less) than 1 row per `summarise()`
+## group was deprecated in dplyr 1.1.0.
+## ℹ Please use `reframe()` instead.
+## ℹ When switching from `summarise()` to `reframe()`,
+##   remember that `reframe()` always returns an
+##   ungrouped data frame and adjust accordingly.
+## Call `lifecycle::last_lifecycle_warnings()` to see
+## where this warning was generated.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;product_id&#39;. You
+## can override using the `.groups` argument.</code></pre>
+<pre class="r"><code>instacart_bar</code></pre>
+<pre><code>## Warning: textfont.color doesn&#39;t (yet) support data arrays</code></pre>
+<pre><code>## Warning: textfont.color doesn&#39;t (yet) support data arrays</code></pre>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-bdd58051c66c61998a61" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-bdd58051c66c61998a61">{"x":{"visdat":{"41e041c6b3bc":["function () ","plotlyVisDat"]},"cur_data":"41e041c6b3bc","attrs":{"41e041c6b3bc":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Department","type":"category","categoryorder":"array","categoryarray":["alcohol","babies","bakery","beverages","breakfast","canned goods","dairy eggs","deli","dry goods pasta","frozen","household","international","meat seafood","pantry","personal care","pets","produce","snacks"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"# of Orders"},"title":"Bar chart of # of Orders in each Department","hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["dry goods pasta","beverages","dairy eggs","dairy eggs","pantry","dry goods pasta","frozen","household","dairy eggs","pantry","frozen","snacks","deli","frozen","bakery","international","pantry","snacks","babies","pantry","frozen","frozen","produce","meat seafood","snacks","breakfast","produce","produce","breakfast","dairy eggs","produce","dairy eggs","beverages","snacks","dry goods pasta","produce","produce","beverages","beverages","pantry","dairy eggs","dairy eggs","produce","meat seafood","meat seafood","produce","dairy eggs","dairy eggs","produce","produce","household","frozen","babies","dairy eggs","dairy eggs","frozen","frozen","personal care","beverages","pantry","household","dairy eggs","dairy eggs","canned goods","dairy eggs","personal care","produce","frozen","deli","snacks","pantry","dry goods pasta","dairy eggs","dairy eggs","dairy eggs","produce","pantry","produce","dairy eggs","produce","produce","snacks","deli","pets","produce","produce","produce","produce","produce","produce","produce","beverages","pantry","beverages","frozen","frozen","dry goods pasta","breakfast","deli","pantry","bakery","snacks","frozen","meat seafood","deli","household","beverages","deli","deli","personal care","produce","produce","beverages","produce","pantry","beverages","produce","snacks","dairy eggs","frozen","bakery","deli","produce","pantry","dairy eggs","dairy eggs","frozen","beverages","bakery","snacks","snacks","deli","produce","produce","produce","produce","dairy eggs","dairy eggs","household","frozen","dairy eggs","produce","personal care","bakery","beverages","produce","produce","pantry","produce","dairy eggs","produce","produce","produce","snacks","canned goods","produce","produce","pantry","pantry","produce","beverages","snacks","beverages","bakery","dairy eggs","produce","produce","produce","produce","meat seafood","dairy eggs","dry goods pasta","personal care","dry goods pasta","pantry","pantry","canned goods","dairy eggs","dairy eggs","dry goods pasta","household","produce","snacks","breakfast","dairy eggs","pantry","beverages","beverages","bakery","produce","dairy eggs","snacks","snacks","dry goods pasta","snacks","frozen","snacks","household","household","dry goods pasta","dairy eggs","dairy eggs","frozen","frozen","household","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","bakery","produce","produce","meat seafood","produce","dairy eggs","dairy eggs","dairy eggs","dairy eggs","snacks","personal care","dairy eggs","produce","produce","frozen","dairy eggs","pets","pets","snacks","snacks","frozen","produce","dairy eggs","personal care","produce","beverages","beverages","frozen","frozen","dairy eggs","produce","dairy eggs","produce","produce","produce","produce","beverages","produce","snacks","produce","deli","dairy eggs","pantry","dry goods pasta","produce","produce","produce","produce","dairy eggs","household","produce","produce","snacks","frozen","dairy eggs","produce","canned goods","meat seafood","household","dairy eggs","dairy eggs","produce","produce","produce","produce","produce","frozen","beverages","produce","canned goods","frozen","produce","snacks","dairy eggs","frozen","beverages","meat seafood","dry goods pasta","canned goods","dairy eggs","produce","breakfast","canned goods","personal care","produce","produce","produce","personal care","bakery","snacks","frozen","dairy eggs","produce","dairy eggs","personal care","pantry","produce","snacks","snacks","frozen","bakery","snacks","snacks","dry goods pasta","dairy eggs","dry goods pasta","dairy eggs","produce","frozen","breakfast","dairy eggs","meat seafood","snacks","beverages","dairy eggs","dairy eggs","frozen","pantry","produce","frozen","deli","babies","snacks","produce","snacks","dairy eggs","beverages","beverages","dry goods pasta","beverages","meat seafood","snacks","dairy eggs","frozen","dairy eggs","beverages","beverages","beverages","produce","dry goods pasta","frozen","bakery","household","produce","produce","produce","pantry","snacks","dairy eggs","produce","produce","deli","dry goods pasta","beverages","frozen","household","produce","produce","dairy eggs","produce","babies","dairy eggs","international","produce","dairy eggs","pantry","produce","produce","produce","deli","dry goods pasta","snacks","deli","frozen","produce","produce","produce","household","snacks","snacks","snacks","frozen","produce","pantry","frozen","pets","pantry","dry goods pasta","dairy eggs","canned goods","canned goods","alcohol","dairy eggs","dairy eggs","pantry","snacks","dairy eggs","dairy eggs","beverages","dairy eggs","pantry","pantry","produce","dairy eggs","dairy eggs","personal care","produce","produce","produce","produce","produce","frozen","beverages","breakfast","snacks","dairy eggs","dairy eggs","pantry","snacks","dairy eggs","produce","produce","frozen","dairy eggs","canned goods","personal care","dry goods pasta","produce","produce","snacks","snacks","produce","dairy eggs","pantry","personal care","dairy eggs","produce","frozen","beverages","dairy eggs","produce","produce","produce","produce","produce","produce","produce","deli","produce","produce","produce","produce","produce","snacks","produce","produce","produce","personal care","snacks","produce","produce","produce","produce","produce","produce","beverages","snacks","pantry","canned goods","dairy eggs","produce","bakery","produce","produce","frozen","beverages","deli","deli","pantry","beverages","produce"],"y":[4,4,18,4,23,34,100,5,20,6,4,13,50,28,16,10,52,4,20,5,23,7,17,16,47,29,23,23,37,4,15,4,11,4,8,92,92,17,17,13,10,9,4,8,8,19,24,6,5,13,4,8,4,9,7,23,17,19,11,35,44,27,27,4,57,12,30,11,10,13,4,18,12,12,81,33,6,14,6,59,59,6,21,51,99,99,99,99,28,28,28,14,35,28,54,54,30,19,10,6,21,10,6,11,9,5,13,38,38,8,67,67,9,9,38,6,44,6,5,23,20,4,14,24,8,7,21,6,5,10,5,16,92,92,92,92,17,4,4,4,13,10,5,4,4,33,26,24,5,8,18,18,12,6,20,15,82,20,20,6,13,4,8,4,6,114,114,114,24,10,26,19,4,17,9,11,5,15,42,8,9,13,4,33,18,8,36,36,6,50,24,9,14,9,22,6,33,23,23,8,20,9,165,165,35,189,189,189,189,189,189,189,189,189,35,4,13,15,15,4,16,62,52,52,13,14,8,5,34,34,14,10,33,33,5,21,52,9,4,23,13,4,7,29,46,11,34,15,11,11,18,18,6,5,51,5,7,27,14,4,31,31,31,54,4,13,9,6,8,4,9,16,9,55,13,45,45,36,36,9,12,12,12,7,13,13,4,4,66,6,29,12,5,4,32,9,37,5,37,8,22,22,22,7,4,9,22,13,10,15,33,27,14,37,6,6,4,5,8,10,56,7,8,25,21,65,15,4,12,15,13,10,25,17,6,20,18,24,74,86,5,17,11,4,32,77,4,9,29,4,49,53,53,53,18,11,38,52,15,43,18,18,10,47,8,20,20,14,8,7,9,11,21,18,5,7,6,7,5,68,16,19,12,5,5,44,4,11,5,14,42,42,5,8,12,13,11,4,5,9,4,36,14,5,84,45,45,20,20,11,5,21,10,49,17,5,72,72,35,5,50,6,27,129,129,129,129,5,20,26,13,41,41,11,21,49,18,18,41,10,9,36,8,17,7,24,24,11,10,6,8,12,13,11,10,5,120,120,120,57,57,57,57,11,155,155,155,155,155,4,50,50,50,19,100,5,78,78,78,78,78,9,32,9,7,10,11,7,13,13,15,4,28,28,8,5,5],"type":"bar","marker":{"colorbar":{"title":"product_id","ticklen":2},"cmin":165,"cmax":49683,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[165,196,329,432,1086,1090,1215,1217,1559,1631,1774,2091,2344,2361,2374,2450,2593,2732,3020,3546,3740,3885,3999,4192,4332,4410,4605,4605,4792,4799,4920,4957,5073,5250,5275,5450,5450,5479,5479,5493,5535,5564,5578,5646,5646,5652,5782,5785,5818,6000,6061,6074,6224,6347,6348,6500,6669,6747,6799,6860,6917,6933,6933,7021,7054,7222,7419,7493,7673,7736,7751,7778,7781,7781,7948,7969,8006,8048,8153,8277,8277,8339,8385,8399,8424,8424,8424,8424,8518,8518,8518,8615,9006,9018,9076,9076,9366,9430,9431,9551,9666,9755,9825,10017,10163,10255,10312,10369,10369,10500,10504,10504,10616,10749,10859,11092,11182,11315,11422,11440,11461,11463,11777,12314,12315,12395,12500,12606,12620,12811,12817,12879,13176,13176,13176,13176,13500,13802,13838,13920,14154,14161,14650,14875,14947,14992,15261,15438,15592,15842,15872,15872,15937,16014,16215,16283,16349,16462,16462,16797,16864,17224,17631,17706,17758,17794,17794,17794,17795,17878,17949,18019,18029,18340,18410,18441,18479,18523,18594,18599,18988,19049,19240,19272,19348,19370,19660,19660,19816,19828,20082,20169,20178,20549,20580,20622,20686,20711,20711,20776,20785,20842,20995,20995,21050,21137,21137,21137,21137,21137,21137,21137,21137,21137,21288,21295,21344,21903,21903,21927,21938,21949,22035,22035,22124,22223,22452,22866,22935,22935,23074,23082,23329,23329,23645,23783,23836,23854,23909,24002,24184,24186,24267,24489,24561,24639,24830,24838,24852,24852,24964,24964,25146,25340,25447,25588,25623,25659,25763,25886,26209,26209,26209,26369,26384,26728,26882,27104,27115,27179,27307,27521,27683,27695,27799,27845,27845,27966,27966,28199,28204,28204,28553,28836,28842,28849,28934,28985,29077,29127,29388,29529,29650,29722,29934,29987,30027,30157,30315,30360,30391,30391,30391,30544,30561,30611,30696,30921,31067,31215,31283,31506,31717,31730,32052,32099,32211,32225,32293,32360,32403,32413,32655,32689,32691,32861,33000,33081,33112,33489,33682,33754,33919,34103,34126,34127,34128,34134,34137,34358,34448,34608,34688,34734,34943,35065,35483,35696,35935,35946,35951,36036,36036,36036,36082,36322,36476,36606,36872,37011,37067,37067,37113,37276,37524,37646,37646,37658,37849,37965,38274,38300,38400,38557,38689,38739,38984,39190,39191,39275,39527,39577,39812,39877,39984,40076,40173,40199,40310,40587,40706,40706,40723,40963,41400,41427,41817,41842,41966,41973,42205,42555,42667,42699,42736,42768,42768,42781,42871,42992,43129,43165,43279,43394,43631,43635,43713,43713,43772,43867,44008,44088,44142,44359,44359,44359,44359,44371,44375,44422,44468,44799,44799,44883,44948,44987,45066,45066,45493,45504,45535,45569,45679,45763,46006,46061,46061,46206,46270,46473,46553,46654,46667,46802,46813,46886,46906,46906,46906,46979,46979,46979,46979,46982,47209,47209,47209,47209,47209,47357,47626,47626,47626,47695,47717,47734,47766,47766,47766,47766,47766,47931,47957,48043,48094,48104,48679,48716,48775,48775,49075,49119,49131,49131,49424,49520,49683],"line":{"colorbar":{"title":"","ticklen":2},"cmin":165,"cmax":49683,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[165,196,329,432,1086,1090,1215,1217,1559,1631,1774,2091,2344,2361,2374,2450,2593,2732,3020,3546,3740,3885,3999,4192,4332,4410,4605,4605,4792,4799,4920,4957,5073,5250,5275,5450,5450,5479,5479,5493,5535,5564,5578,5646,5646,5652,5782,5785,5818,6000,6061,6074,6224,6347,6348,6500,6669,6747,6799,6860,6917,6933,6933,7021,7054,7222,7419,7493,7673,7736,7751,7778,7781,7781,7948,7969,8006,8048,8153,8277,8277,8339,8385,8399,8424,8424,8424,8424,8518,8518,8518,8615,9006,9018,9076,9076,9366,9430,9431,9551,9666,9755,9825,10017,10163,10255,10312,10369,10369,10500,10504,10504,10616,10749,10859,11092,11182,11315,11422,11440,11461,11463,11777,12314,12315,12395,12500,12606,12620,12811,12817,12879,13176,13176,13176,13176,13500,13802,13838,13920,14154,14161,14650,14875,14947,14992,15261,15438,15592,15842,15872,15872,15937,16014,16215,16283,16349,16462,16462,16797,16864,17224,17631,17706,17758,17794,17794,17794,17795,17878,17949,18019,18029,18340,18410,18441,18479,18523,18594,18599,18988,19049,19240,19272,19348,19370,19660,19660,19816,19828,20082,20169,20178,20549,20580,20622,20686,20711,20711,20776,20785,20842,20995,20995,21050,21137,21137,21137,21137,21137,21137,21137,21137,21137,21288,21295,21344,21903,21903,21927,21938,21949,22035,22035,22124,22223,22452,22866,22935,22935,23074,23082,23329,23329,23645,23783,23836,23854,23909,24002,24184,24186,24267,24489,24561,24639,24830,24838,24852,24852,24964,24964,25146,25340,25447,25588,25623,25659,25763,25886,26209,26209,26209,26369,26384,26728,26882,27104,27115,27179,27307,27521,27683,27695,27799,27845,27845,27966,27966,28199,28204,28204,28553,28836,28842,28849,28934,28985,29077,29127,29388,29529,29650,29722,29934,29987,30027,30157,30315,30360,30391,30391,30391,30544,30561,30611,30696,30921,31067,31215,31283,31506,31717,31730,32052,32099,32211,32225,32293,32360,32403,32413,32655,32689,32691,32861,33000,33081,33112,33489,33682,33754,33919,34103,34126,34127,34128,34134,34137,34358,34448,34608,34688,34734,34943,35065,35483,35696,35935,35946,35951,36036,36036,36036,36082,36322,36476,36606,36872,37011,37067,37067,37113,37276,37524,37646,37646,37658,37849,37965,38274,38300,38400,38557,38689,38739,38984,39190,39191,39275,39527,39577,39812,39877,39984,40076,40173,40199,40310,40587,40706,40706,40723,40963,41400,41427,41817,41842,41966,41973,42205,42555,42667,42699,42736,42768,42768,42781,42871,42992,43129,43165,43279,43394,43631,43635,43713,43713,43772,43867,44008,44088,44142,44359,44359,44359,44359,44371,44375,44422,44468,44799,44799,44883,44948,44987,45066,45066,45493,45504,45535,45569,45679,45763,46006,46061,46061,46206,46270,46473,46553,46654,46667,46802,46813,46886,46906,46906,46906,46979,46979,46979,46979,46982,47209,47209,47209,47209,47209,47357,47626,47626,47626,47695,47717,47734,47766,47766,47766,47766,47766,47931,47957,48043,48094,48104,48679,48716,48775,48775,49075,49119,49131,49131,49424,49520,49683]}},"xaxis":"x","yaxis":"y","frame":null},{"x":["alcohol","snacks"],"y":[4,189],"type":"scatter","mode":"markers","opacity":0,"hoverinfo":"none","showlegend":false,"marker":{"colorbar":{"title":"product_id","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"cmin":165,"cmax":49683,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666667","rgba(70,19,97,1)"],["0.0833333333333333","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"color":[165,49683],"line":{"color":"rgba(255,127,14,1)"}},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="box-plot" class="section level2">
+<h2>Box Plot</h2>
+<pre class="r"><code>instacart_box = 
+  instacart |&gt;
+  drop_na() |&gt;
+  sample_n(1000) |&gt;
+  group_by(department) |&gt;
+  filter( !department == &#39;missing&#39; &amp; !department == &#39;other&#39;) |&gt;
+  select(department, days_since_prior_order, user_id) |&gt;
+  plot_ly(
+    x = ~department,
+    y = ~days_since_prior_order,
+    type = &#39;box&#39;,
+    color = ~department
+  ) |&gt;
+  layout(
+    xaxis = list(title=&#39;Department&#39;),
+    yaxis = list(title=&#39;# of Days since last order&#39;),
+    title = &#39;Box Plot of # of Days since last order across Departments&#39;
+  )
+  
+instacart_box</code></pre>
+<pre><code>## Warning in RColorBrewer::brewer.pal(N, &quot;Set2&quot;): n too large, allowed maximum for palette Set2 is 8
+## Returning the palette you asked for with that many colors
+
+## Warning in RColorBrewer::brewer.pal(N, &quot;Set2&quot;): n too large, allowed maximum for palette Set2 is 8
+## Returning the palette you asked for with that many colors</code></pre>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4d1c025867b145ad83bd" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-4d1c025867b145ad83bd">{"x":{"visdat":{"41e07896b8f1":["function () ","plotlyVisDat"]},"cur_data":"41e07896b8f1","attrs":{"41e07896b8f1":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Department","type":"category","categoryorder":"array","categoryarray":["alcohol","babies","bakery","beverages","breakfast","bulk","canned goods","dairy eggs","deli","dry goods pasta","frozen","household","international","meat seafood","pantry","personal care","pets","produce","snacks"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"# of Days since last order"},"title":"Box Plot of # of Days since last order across Departments","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":["alcohol","alcohol"],"y":[4,7],"type":"box","name":"alcohol","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(178,177,139,0.5)","x":["babies","babies","babies","babies","babies","babies","babies","babies","babies","babies","babies","babies"],"y":[8,30,30,19,14,13,30,2,16,30,30,16],"type":"box","name":"babies","marker":{"color":"rgba(178,177,139,1)","line":{"color":"rgba(178,177,139,1)"}},"line":{"color":"rgba(178,177,139,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(228,156,113,0.5)","x":["bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery","bakery"],"y":[5,6,30,30,30,8,6,21,30,13,18,10,30,30,2,30,7,6,30,8,6,14,19,14,30,6,6,21,10,24,11,10,21],"type":"box","name":"bakery","marker":{"color":"rgba(228,156,113,1)","line":{"color":"rgba(228,156,113,1)"}},"line":{"color":"rgba(228,156,113,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(238,145,116,0.5)","x":["beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages","beverages"],"y":[8,6,21,6,23,9,10,4,30,8,25,30,30,13,23,30,30,7,16,30,27,4,30,9,12,10,30,30,10,16,16,30,5,30,2,5,7,12,8,17,2,13,14,6,30,5,18,30,9,30,1,20,30,8,13,30,23,23,30,30,30,4,7,29,7,7,14,30,30,9,9,6,12,25,22,21],"type":"box","name":"beverages","marker":{"color":"rgba(238,145,116,1)","line":{"color":"rgba(238,145,116,1)"}},"line":{"color":"rgba(238,145,116,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(201,152,157,0.5)","x":["breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast","breakfast"],"y":[8,7,3,30,30,12,7,12,11,11,17,30,30,5,30,7,30,30,8,17,14,7],"type":"box","name":"breakfast","marker":{"color":"rgba(201,152,157,1)","line":{"color":"rgba(201,152,157,1)"}},"line":{"color":"rgba(201,152,157,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(150,159,197,0.5)","x":["bulk"],"y":[30],"type":"box","name":"bulk","marker":{"color":"rgba(150,159,197,1)","line":{"color":"rgba(150,159,197,1)"}},"line":{"color":"rgba(150,159,197,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(175,154,200,0.5)","x":["canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods","canned goods"],"y":[30,22,8,22,30,30,30,5,4,21,8,30,30,30,19,27,30,6,30,20,5,14,30,5,30,30,12,7,6,30,13],"type":"box","name":"canned goods","marker":{"color":"rgba(175,154,200,1)","line":{"color":"rgba(175,154,200,1)"}},"line":{"color":"rgba(175,154,200,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(209,146,197,0.5)","x":["dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs","dairy eggs"],"y":[30,18,16,13,7,5,8,7,8,4,30,3,19,15,7,10,6,8,30,30,5,30,14,14,30,7,30,14,9,10,19,22,30,6,30,7,9,24,30,8,30,7,28,7,22,30,6,17,17,15,12,28,7,8,14,10,6,30,3,7,6,14,13,30,15,11,7,30,30,30,10,9,14,19,25,14,30,8,30,21,7,0,30,30,24,30,3,4,9,30,25,5,22,7,7,30,16,3,30,30,9,17,30,30,30,20,5,4,12,30,30,30,19,27,8,11,14,18,16,16,10,30,30,30,5,8,4,28,12,12,8,2,7,30,15,7,15,30,2,30,30,7,6,30,11,6,0,30,28,15,17,24,12,30,15,19,30,30,0,14,13,30,8,5,4,5,23,10,5,14,4,30],"type":"box","name":"dairy eggs","marker":{"color":"rgba(209,146,197,1)","line":{"color":"rgba(209,146,197,1)"}},"line":{"color":"rgba(209,146,197,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(226,148,184,0.5)","x":["deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli","deli"],"y":[5,0,7,30,4,7,30,16,7,7,30,16,30,30,6,14,30,30,18,13,30,30,30,30,13,5,3,20,5,7,30],"type":"box","name":"deli","marker":{"color":"rgba(226,148,184,1)","line":{"color":"rgba(226,148,184,1)"}},"line":{"color":"rgba(226,148,184,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(205,180,144,0.5)","x":["dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta","dry goods pasta"],"y":[6,7,11,6,14,25,14,12,6,30,2,7,14,15,2,5,30,30,14,7,11,28,9,22,13],"type":"box","name":"dry goods pasta","marker":{"color":"rgba(205,180,144,1)","line":{"color":"rgba(205,180,144,1)"}},"line":{"color":"rgba(205,180,144,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(176,208,99,0.5)","x":["frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen","frozen"],"y":[17,16,17,2,30,28,30,29,1,30,30,6,30,15,30,21,3,10,5,8,21,6,29,4,18,10,30,12,22,10,13,30,10,30,8,5,30,30,30,30,3,19,30,4,11,5,8,19,15,30,14,22,21,12,12,30,7,30,30,1,14,30,7,30,30,14,30,30,30,30,13],"type":"box","name":"frozen","marker":{"color":"rgba(176,208,99,1)","line":{"color":"rgba(176,208,99,1)"}},"line":{"color":"rgba(176,208,99,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(193,217,75,0.5)","x":["household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household","household"],"y":[13,17,14,3,11,30,6,30,10,30,30,30,9,20,30,30,2,6,23,6,30,7,23,6,12,17],"type":"box","name":"household","marker":{"color":"rgba(193,217,75,1)","line":{"color":"rgba(193,217,75,1)"}},"line":{"color":"rgba(193,217,75,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(227,217,62,0.5)","x":["international","international","international","international","international","international","international","international","international"],"y":[30,30,0,3,23,12,18,30,5],"type":"box","name":"international","marker":{"color":"rgba(227,217,62,1)","line":{"color":"rgba(227,217,62,1)"}},"line":{"color":"rgba(227,217,62,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(254,216,56,0.5)","x":["meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood","meat seafood"],"y":[6,7,8,8,30,14,18,30,3,8,20,30,30,9,6,30,30,10,8,20,5,30,30,6,7,8,11,4],"type":"box","name":"meat seafood","marker":{"color":"rgba(254,216,56,1)","line":{"color":"rgba(254,216,56,1)"}},"line":{"color":"rgba(254,216,56,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(245,207,100,0.5)","x":["pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry","pantry"],"y":[30,30,18,3,30,30,7,7,30,19,30,30,30,11,17,23,30,10,4,4,13,14,22,7,7,18,5,7,30,7,25,8,20,13,5,20,6,30,17,6,5,11,16,30,30,30,5,30,10,10,30,30,15,5,2],"type":"box","name":"pantry","marker":{"color":"rgba(245,207,100,1)","line":{"color":"rgba(245,207,100,1)"}},"line":{"color":"rgba(245,207,100,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(234,199,134,0.5)","x":["personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care","personal care"],"y":[30,13,9,27,20,30,2,19,5,5,10,0,8,30,30,7,2],"type":"box","name":"personal care","marker":{"color":"rgba(234,199,134,1)","line":{"color":"rgba(234,199,134,1)"}},"line":{"color":"rgba(234,199,134,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(219,192,155,0.5)","x":["pets","pets","pets","pets","pets"],"y":[15,14,8,13,30],"type":"box","name":"pets","marker":{"color":"rgba(219,192,155,1)","line":{"color":"rgba(219,192,155,1)"}},"line":{"color":"rgba(219,192,155,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(200,186,167,0.5)","x":["produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce","produce"],"y":[30,10,30,7,0,7,5,20,9,15,21,8,15,6,30,3,17,30,20,30,28,30,7,4,15,10,5,6,30,13,20,23,7,20,8,16,23,8,23,30,2,5,30,9,30,8,15,16,9,28,10,30,30,12,20,30,9,20,28,13,7,30,14,30,30,6,8,0,13,17,30,6,13,5,9,14,9,22,28,3,30,30,30,8,30,8,7,30,9,10,9,30,18,30,8,30,7,30,12,5,22,30,1,8,6,30,4,20,30,27,30,8,30,27,16,21,13,10,30,9,10,14,7,30,10,6,7,13,30,5,1,30,8,30,12,3,5,30,2,30,9,16,20,9,30,5,21,30,7,19,30,21,9,30,16,17,15,27,4,9,30,23,30,13,6,11,7,15,16,30,16,5,6,15,30,6,8,3,30,29,30,30,7,28,30,15,20,30,14,10,30,10,30,30,13,30,30,7,7,1,30,3,7,7,30,30,14,16,26,9,30,30,8,7,3,6,24,9,30,30,16,27,22,18,30,6,14,30,13,30,3,7,4,21,20,4,18,30,6,5,30,14,6,19,30,21,3,17,30,3,24,15,1,27,30,30,13,13,6,30,7,27,6,30,9,26,13,30,30,9,11,28,30,11,27,6,30,3,30,15,15,27,9,2,7,9,30,30,6,15,30,30,30,28,15,30,30,13,13,3,26,28,30,9,13,30],"type":"box","name":"produce","marker":{"color":"rgba(200,186,167,1)","line":{"color":"rgba(200,186,167,1)"}},"line":{"color":"rgba(200,186,167,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(179,179,179,0.5)","x":["snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks","snacks"],"y":[14,23,14,3,6,7,5,8,5,15,6,14,5,10,1,30,30,6,13,6,20,30,30,8,10,27,7,30,3,3,30,8,16,6,30,30,14,12,0,7,17,17,28,30,5,23,30,3,15,5,30,7,20,27,5,5,7,6,30,10,30,1,6,2,30,30,30,8,14,7,15,7],"type":"box","name":"snacks","marker":{"color":"rgba(179,179,179,1)","line":{"color":"rgba(179,179,179,1)"}},"line":{"color":"rgba(179,179,179,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
